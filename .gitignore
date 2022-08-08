@@ -1,0 +1,6 @@
+.idea
+**/themes/
+site/public/
+site/resources/
+*.lock
+.DS_Store
