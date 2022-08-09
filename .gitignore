@@ -4,3 +4,5 @@ site/public/
 site/resources/
 *.lock
 .DS_Store
+.terraform
+.terraform.*
