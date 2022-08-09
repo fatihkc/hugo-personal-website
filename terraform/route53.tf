@@ -1,10 +1,10 @@
 resource "aws_route53_zone" "primary" {
-  name = "fatihkoc.net"
+  name = var.domain_name
 }
 
 resource "aws_route53_record" "MX" {
   zone_id = aws_route53_zone.primary.zone_id
-  name    = "fatihkoc.net"
+  name    = var.domain_name
   type    = "MX"
   ttl     = 300
   records = ["10 mx.yandex.net."]
