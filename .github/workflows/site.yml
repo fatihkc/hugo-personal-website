@@ -25,9 +25,6 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
-      - name: Change directory to site
-        run: cd site
-
       # Runs a single command using the runners shell
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
@@ -35,10 +32,10 @@ jobs:
           hugo-version: '0.101.0'
 
       - name: Build
-        run: pwd && hugo --minify
+        run: cd site && hugo --minify
         
       - name: Deploy to AWS S3
-        run: hugo deploy --force --maxDeletes -1 --invalidateCDN
+        run: cd site && hugo deploy --force --maxDeletes -1 --invalidateCDN
         env:
           AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
           AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
