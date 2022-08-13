@@ -19,11 +19,11 @@ module "cdn" {
 
   custom_error_response = [
     {
-      "error_code"          = 404
-      "response_code"       = 404
-      "response_page_path"  = "/404.html"
+      "error_code"         = 404
+      "response_code"      = 404
+      "response_page_path" = "/404.html"
     }
-]
+  ]
 
   create_origin_access_identity = true
   origin_access_identities = {
@@ -40,8 +40,8 @@ module "cdn" {
   }
 
   default_cache_behavior = {
-    target_origin_id           = "s3_one"
-    viewer_protocol_policy     = "allow-all"
+    target_origin_id       = "s3_one"
+    viewer_protocol_policy = "allow-all"
 
     allowed_methods = ["GET", "HEAD", "OPTIONS"]
     cached_methods  = ["GET", "HEAD"]
@@ -52,5 +52,5 @@ module "cdn" {
   viewer_certificate = {
     acm_certificate_arn = aws_acm_certificate.cert.arn
     ssl_support_method  = "sni-only"
-  }  
+  }
 }
