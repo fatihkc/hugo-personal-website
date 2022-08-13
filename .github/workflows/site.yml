@@ -24,7 +24,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: terraform
+        working-directory: site
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
