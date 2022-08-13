@@ -10,4 +10,4 @@ Step:
 - Write Terraform script for s3 bucket, acm, cloudfront, route53
 - Import Route53 if exists
 - Write site deployment to config.toml
-- GitHub Actions
+- GitHub Actions for site and terraform
