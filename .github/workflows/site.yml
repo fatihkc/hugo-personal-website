@@ -35,7 +35,7 @@ jobs:
           hugo-version: '0.101.0'
 
       - name: Build
-        run: hugo --minify
+        run: pwd && hugo --minify
         
       - name: Deploy to AWS S3
         run: hugo deploy --force --maxDeletes -1 --invalidateCDN
