@@ -10,11 +10,20 @@ module "cdn" {
   aliases = [var.domain_name]
 
   comment             = "My awesome CloudFront"
+  default_root_object = "index.html"
   enabled             = true
   is_ipv6_enabled     = true
   price_class         = "PriceClass_All"
   retain_on_delete    = false
   wait_for_deployment = false
+
+  custom_error_response = [
+    {
+      "error_code"          = 404
+      "response_code"       = 404
+      "response_page_path"  = "/404.html"
+    }
+]
 
   create_origin_access_identity = true
   origin_access_identities = {
@@ -39,19 +48,6 @@ module "cdn" {
     compress        = true
     query_string    = true
   }
-
-  ordered_cache_behavior = [
-    {
-      path_pattern           = "/static/*"
-      target_origin_id       = "s3_one"
-      viewer_protocol_policy = "redirect-to-https"
-
-      allowed_methods = ["GET", "HEAD", "OPTIONS"]
-      cached_methods  = ["GET", "HEAD"]
-      compress        = true
-      query_string    = true
-    }
-  ]
 
   viewer_certificate = {
     acm_certificate_arn = aws_acm_certificate.cert.arn
