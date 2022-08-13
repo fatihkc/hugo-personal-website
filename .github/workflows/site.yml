@@ -39,10 +39,10 @@ jobs:
           hugo-version: '0.101.0'
 
       - name: Build
-        run: hugo --minify
+        run: hugo
         
       - name: Deploy to AWS S3
-        run: hugo deploy
+        run: hugo deploy --force --maxDeletes -1 --invalidateCDN
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
