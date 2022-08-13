@@ -37,19 +37,19 @@ resource "aws_acm_certificate_validation" "certvalidation" {
   validation_record_fqdns = [for r in aws_route53_record.certvalidation : r.fqdn]
 }
 
-# resource "aws_route53_record" "websiteurl" {
+resource "aws_route53_record" "websiteurl" {
 
-#   depends_on = [
-#     module.cdn
-#   ]
+  depends_on = [
+    module.cdn
+  ]
 
-#   name    = var.domain_name
-#   zone_id = aws_route53_zone.primary.zone_id
-#   type    = "A"
+  name    = var.domain_name
+  zone_id = aws_route53_zone.primary.zone_id
+  type    = "A"
 
-#   alias {
-#     name                   = module.cdn.cloudfront_distribution_domain_name
-#     zone_id                = aws_route53_zone.primary.zone_id
-#     evaluate_target_health = true
-#   }
-# }
+  alias {
+    name                   = module.cdn.cloudfront_distribution_domain_name
+    zone_id                = module.cdn.cloudfront_distribution_hosted_zone_id
+    evaluate_target_health = true
+  }
+}
