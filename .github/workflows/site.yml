@@ -1,5 +1,4 @@
 # This is a basic workflow to help you get started with Actions
-
 name: Update website
 
 # Controls when the workflow will run
@@ -10,6 +9,7 @@ on:
       - main
     paths:
       - site
+      - .github/workflows/site.yml
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -20,6 +20,11 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        shell: bash
+        working-directory: terraform
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -33,10 +38,10 @@ jobs:
           hugo-version: '0.101.0'
 
       - name: Build
-        run: cd site && hugo --minify
+        run: hugo --minify
         
       - name: Deploy to AWS S3
-        run: cd site && hugo deploy --force --maxDeletes -1 --invalidateCDN
+        run: hugo deploy --force --maxDeletes -1 --invalidateCDN
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
