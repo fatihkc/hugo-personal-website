@@ -10,5 +10,13 @@ module "s3_bucket" {
   website = {
     index_document = "index.html"
     error_document = "404.html"
+    routing_rules = [{
+      condition = {
+        key_prefix_equals = "index.html"
+      },
+      redirect = {
+        replace_key_prefix_with = "/"
+      }
+      }]
   }
 }

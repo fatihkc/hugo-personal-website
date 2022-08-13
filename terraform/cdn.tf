@@ -7,7 +7,10 @@ module "cdn" {
 
   source = "terraform-aws-modules/cloudfront/aws"
 
-  aliases = [var.domain_name]
+  aliases = [
+    "fatihkoc.net",
+    "www.fatihkoc.net",
+  ]
 
   comment             = "My awesome CloudFront"
   default_root_object = "index.html"
@@ -20,6 +23,11 @@ module "cdn" {
   custom_error_response = [
     {
       "error_code"         = 404
+      "response_code"      = 404
+      "response_page_path" = "/404.html"
+    },
+    {
+      "error_code"         = 403
       "response_code"      = 404
       "response_page_path" = "/404.html"
     }
@@ -43,7 +51,7 @@ module "cdn" {
     target_origin_id       = "s3_one"
     viewer_protocol_policy = "allow-all"
 
-    allowed_methods = ["GET", "HEAD", "OPTIONS"]
+    allowed_methods = ["GET", "HEAD"]
     cached_methods  = ["GET", "HEAD"]
     compress        = true
     query_string    = true

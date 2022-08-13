@@ -1,4 +1,4 @@
-baseURL = "http://www.fatihkoc.net"
+baseURL = "https://fatihkoc.net"
 title = "Fatih Koc"
 theme = "hugo-coder"
 languageCode = "en"
@@ -64,7 +64,7 @@ url = "https://github.com/fatihkc/"
 name = "Twitter"
 icon = "fa fa-2x fa-twitter"
 weight = 2
-url = "https://twitter.com/johndoe/"
+url = "https://twitter.com/fatihkocnet/"
 
 [[params.social]]
 name = "LinkedIn"
