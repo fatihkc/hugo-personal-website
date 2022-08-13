@@ -9,6 +9,7 @@ on:
       - main
     paths:
       - site
+      - site/**
       - .github/workflows/site.yml
 
   # Allows you to run this workflow manually from the Actions tab
