@@ -98,7 +98,7 @@ name = "Contact me"
 weight = 3
 url = "contact/"
 
---- Deploy ---
+### Deploy ###
 
 [deployment]
 # By default, files are uploaded in an arbitrary order.
@@ -125,7 +125,7 @@ URL = "s3://fatihkocnet-hugo?region=eu-central-1"
 # URL = "gs://<Bucket Name>?prefix=a/subfolder/"
 
 # If you are using a CloudFront CDN, deploy will invalidate the cache as needed.
-cloudFrontDistributionID = <ID>
+cloudFrontDistributionID = "E23U4C4B9AZUAV"
 
 # Optionally, you can include or exclude specific files.
 # See https://godoc.org/github.com/gobwas/glob#Glob for the glob pattern syntax.
