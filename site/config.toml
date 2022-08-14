@@ -1,4 +1,4 @@
-baseURL = "https://fatihkoc.net"
+baseURL = "https://www.fatihkoc.net"
 title = "Fatih Koc"
 theme = "hugo-coder"
 languageCode = "en"
@@ -12,7 +12,7 @@ enableEmoji = true
 [params]
 author = "Fatih Koc"
 description = "Fatih Koc's personal website"
-keywords = "blog,developer,personal"
+keywords = "blog,developer,devops,personal"
 info = ["DevOps"]
 avatarURL = "images/avatar.jpg"
 dateFormat = "January 2, 2006"
