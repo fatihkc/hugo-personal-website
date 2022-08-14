@@ -12,10 +12,10 @@ module "s3_bucket" {
     error_document = "404.html"
     routing_rules = [{
       condition = {
-        key_prefix_equals = "index.html"
+        key_prefix_equals = "/"
       },
       redirect = {
-        replace_key_prefix_with = "/"
+        replace_key_prefix_with = "index.html"
       }
       }]
   }
