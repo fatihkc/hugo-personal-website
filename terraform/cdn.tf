@@ -49,7 +49,7 @@ module "cdn" {
 
   default_cache_behavior = {
     target_origin_id       = "s3_one"
-    viewer_protocol_policy = "allow-all"
+    viewer_protocol_policy = "redirect-to-https"
 
     allowed_methods = ["GET", "HEAD"]
     cached_methods  = ["GET", "HEAD"]
