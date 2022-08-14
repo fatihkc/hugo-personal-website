@@ -39,7 +39,7 @@ jobs:
           hugo-version: '0.101.0'
 
       - name: Build
-        run: hugo
+        run: ls -la && hugo --minify && ls -la public 
         
       - name: Deploy to AWS S3
         run: ls -la public && hugo deploy
