@@ -11,3 +11,4 @@ Step:
 - Import Route53 if exists
 - Write site deployment to config.toml
 - GitHub Actions for site and terraform
+- Lambda functions for redirect

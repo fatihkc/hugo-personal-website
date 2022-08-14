@@ -17,14 +17,6 @@ module "s3_bucket" {
       redirect = {
         replace_key_prefix_with = "index.html"
       }
-      },
-      {
-        condition = {
-          key_prefix_equals = "/about/"
-        },
-        redirect = {
-          replace_key_prefix_with = "about/index.html"
-        }
       }]
   }
 }
