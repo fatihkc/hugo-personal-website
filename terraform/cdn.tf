@@ -1,3 +1,11 @@
+resource "aws_cloudfront_function" "redirect" {
+  name = "redirect"
+  runtime = "cloudfront-js-1.0"
+  comment = "Redirects requests to index.html"
+  publish = true
+  code = file("scripts/redirect.js")
+}
+
 module "cdn" {
 
   depends_on = [
@@ -55,6 +63,12 @@ module "cdn" {
     cached_methods  = ["GET", "HEAD"]
     compress        = true
     query_string    = true
+
+    function_association = {
+      viewer-request = {
+        function_arn = aws_cloudfront_function.redirect.arn
+      }
+    }
   }
 
   viewer_certificate = {
