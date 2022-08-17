@@ -18,22 +18,22 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  build-deploy:
+  build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
     defaults:
       run:
         shell: bash
-        working-directory: site
+        working-directory: site # Run all commands in the site directory
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
         with:
-          submodules: true
-          fetch-depth: 0
+          submodules: true # Fetch Hugo themes
+          fetch-depth: 0 
 
       # Runs a single command using the runners shell
       - name: Setup Hugo
@@ -43,15 +43,34 @@ jobs:
           extended: true
 
       - name: Build
-        run: hugo --minify
-        
+        run: hugo --minify # Build the website
+
+  deploy:
+    needs: build # Wait for the build job to finish
+    runs-on: ubuntu-latest
+    
+    defaults:
+      run:
+        shell: bash
+        working-directory: site # Run all commands in the site directory
+      
+    steps:
       - name: Deploy to AWS S3
         run: hugo deploy --force --invalidateCDN
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
+  tests:
+    needs: deploy # Wait for the deploy job to finish
+    runs-on: ubuntu-latest
+    container: cypress/integration:10.6.0
 
-## TODO
-## Create smoke tests
-## Three steps: Build, deploy, smoke test
+    defaults:
+      run:
+        shell: bash
+        working-directory: cypress/integration # Run all commands in the cypress/integration directory
+
+    steps:
+      - name: Integration tests
+        run: cypress run 

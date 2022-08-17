@@ -6,3 +6,4 @@ site/resources/
 .DS_Store
 .terraform
 .terraform.*
+.vscode

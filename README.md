@@ -12,3 +12,5 @@ Step:
 - Write site deployment to config.toml
 - GitHub Actions for site and terraform
 - Cloudfront functions for redirect
+- Smoke test
+- Write your first blog post
