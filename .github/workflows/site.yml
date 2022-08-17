@@ -23,7 +23,6 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        shell: bash
         working-directory: site # Run all commands in the site directory
 
     # Steps represent a sequence of tasks that will be executed as part of the job
@@ -53,10 +52,6 @@ jobs:
   tests:
     needs: build-deploy # Wait for the build-deploy job to finish
     runs-on: ubuntu-latest
-
-    defaults:
-      run:
-        shell: bash
 
     steps:
 
