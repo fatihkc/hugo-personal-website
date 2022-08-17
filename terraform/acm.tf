@@ -1,3 +1,4 @@
+# Create certificate for Cloudfront
 resource "aws_acm_certificate" "cert" {
   provider                  = aws.us-east # CloudFront only supports certificates in us-east-1
   domain_name               = var.domain_name

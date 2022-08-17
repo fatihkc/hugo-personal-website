@@ -1,11 +1,3 @@
-resource "aws_cloudfront_function" "redirect" {
-  name = "redirect"
-  runtime = "cloudfront-js-1.0"
-  comment = "Redirects requests to index.html"
-  publish = true
-  code = file("scripts/redirect.js")
-}
-
 module "cdn" {
 
   depends_on = [
@@ -75,4 +67,15 @@ module "cdn" {
     acm_certificate_arn = aws_acm_certificate.cert.arn
     ssl_support_method  = "sni-only"
   }
+}
+
+resource "aws_cloudfront_function" "redirect" {
+  depends_on = [
+    module.cdn
+  ]
+  name = "redirect"
+  runtime = "cloudfront-js-1.0"
+  comment = "Redirects requests to index.html"
+  publish = true
+  code = file("scripts/redirect.js")
 }
