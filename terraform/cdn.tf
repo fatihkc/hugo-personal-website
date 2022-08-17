@@ -58,7 +58,7 @@ module "cdn" {
 
     function_association = {
       viewer-request = {
-        function_arn = aws_cloudfront_function.redirect.arn
+        function_arn = aws_cloudfront_function.redirect.arn # Redirect to /index.html
       }
     }
   }
