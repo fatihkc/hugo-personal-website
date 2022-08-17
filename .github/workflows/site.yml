@@ -52,7 +52,7 @@ jobs:
   tests:
     needs: build-deploy # Wait for the build-deploy job to finish
     runs-on: ubuntu-latest
-    container: cypress/integration:10.6.0
+    container: cypress/included:10.6.0
 
     defaults:
       run:
@@ -60,5 +60,8 @@ jobs:
         working-directory: cypress/integration # Run all commands in the cypress/integration directory
 
     steps:
+
+      - uses: actions/checkout@v2
+
       - name: Integration tests
         run: cypress run 
