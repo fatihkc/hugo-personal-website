@@ -11,7 +11,7 @@ on:
       - site
       - site/**
       - .github/workflows/site.yml
-      - cypress
+      - e2e
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -57,7 +57,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: cypress/e2e # Run all commands in the cypress/e2e directory
+        working-directory: e2e # Run all commands in the e2e directory
 
     steps:
 
