@@ -52,7 +52,7 @@ jobs:
     defaults:
       run:
         shell: bash
-#        working-directory: site # Run all commands in the site directory
+        working-directory: site # Run all commands in the site directory
       
     steps:
       - name: Setup Hugo
