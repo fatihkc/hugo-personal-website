@@ -70,9 +70,9 @@ module "cdn" {
 }
 
 resource "aws_cloudfront_function" "redirect" {
-  depends_on = [
-    module.cdn
-  ]
+  # depends_on = [
+  #   module.cdn
+  # ]
   name = "redirect"
   runtime = "cloudfront-js-1.0"
   comment = "Redirects requests to index.html"
