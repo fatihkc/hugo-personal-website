@@ -19,8 +19,8 @@ resource "aws_route53_record" "CNAME" {
     aws_route53_zone.primary
   ]
   zone_id = aws_route53_zone.primary.zone_id
-  name    = "www.fatihkoc.net"
+  name    = "www.${var.domain_name}"
   type    = "CNAME"
   ttl     = 300
-  records = ["fatihkoc.net"]
+  records = ["${var.domain_name}"]
 }

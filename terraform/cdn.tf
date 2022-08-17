@@ -10,8 +10,8 @@ module "cdn" {
   source = "terraform-aws-modules/cloudfront/aws"
 
   aliases = [
-    "fatihkoc.net",
-    "www.fatihkoc.net",
+    "${var.domain_name}",
+    "www.${var.domain_name}",
   ]
 
   comment             = "My awesome CloudFront"
