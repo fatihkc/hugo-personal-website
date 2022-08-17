@@ -7,11 +7,12 @@ I created this project for [Cloud Resume Challange](https://cloudresumechallenge
 ## Technologies:
 
 - Hugo: Static site generator
-- S3: Static website hosting
+- S3: Static website hosting, Terraform state storage
 - CloudFront: CDN
 - Route53: DNS
 - Certificate Manager: SSL certificate
 - Terraform: Infrastructure as Code
+- DynamoDB: Terraform state locking
 - GitHub Actions: CI/CD
 - Cypress: E2E testing
 

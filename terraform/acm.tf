@@ -1,5 +1,8 @@
 # Create certificate for Cloudfront
 resource "aws_acm_certificate" "cert" {
+  depends_on = [
+    aws_route53_zone.primary
+    ]
   provider                  = aws.us-east # CloudFront only supports certificates in us-east-1
   domain_name               = var.domain_name
   subject_alternative_names = ["*.fatihkoc.net"]
@@ -8,12 +11,14 @@ resource "aws_acm_certificate" "cert" {
   lifecycle {
     create_before_destroy = true
   }
-
-  depends_on = [aws_route53_zone.primary]
 }
 
 # Create a DNS record to prove that we _own_ the domain we're requesting a certificate for
 resource "aws_route53_record" "certvalidation" {
+
+  depends_on = [
+    aws_acm_certificate.cert
+  ]
 
   provider = aws.us-east # Cloudfront only supports us-east-1
 
@@ -35,6 +40,9 @@ resource "aws_route53_record" "certvalidation" {
 
 # Validate the certificate
 resource "aws_acm_certificate_validation" "certvalidation" {
+  depends_on = [
+    aws_route53_record.certvalidation
+  ]
   provider                = aws.us-east # CloudFront only supports us-east-1
   certificate_arn         = aws_acm_certificate.cert.arn
   validation_record_fqdns = [for r in aws_route53_record.certvalidation : r.fqdn]
@@ -44,7 +52,8 @@ resource "aws_acm_certificate_validation" "certvalidation" {
 resource "aws_route53_record" "websiteurl" {
 
   depends_on = [
-    module.cdn
+    module.cdn,
+    aws_acm_certificate_validation.certvalidation
   ]
 
   name    = var.domain_name

@@ -4,6 +4,9 @@ resource "aws_route53_zone" "primary" {
 
 # MX record for mail@fatihkoc.net
 resource "aws_route53_record" "MX" {
+  depends_on = [
+    aws_route53_zone.primary
+  ]
   zone_id = aws_route53_zone.primary.zone_id
   name    = var.domain_name
   type    = "MX"
@@ -12,6 +15,9 @@ resource "aws_route53_record" "MX" {
 }
 
 resource "aws_route53_record" "CNAME" {
+  depends_on = [
+    aws_route53_zone.primary
+  ]
   zone_id = aws_route53_zone.primary.zone_id
   name    = "www.fatihkoc.net"
   type    = "CNAME"
