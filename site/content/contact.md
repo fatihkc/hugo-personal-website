@@ -3,4 +3,6 @@ title = "Contact"
 slug = "contact"
 +++
 
-Follow me, @fatihkocnet.
+# Contact
+
+Contact me at mail@fatihkoc.net

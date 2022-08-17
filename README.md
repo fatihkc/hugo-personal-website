@@ -86,7 +86,7 @@ The terraform workflow is defined in `.github/workflows/terraform.yml`. The work
 - Plan Terraform
 - Apply Terraform
 
-## Blog post for Cloud Resume Challenge
+## Blog post for Cloud Resume Challenge
 
 - [Cloud Resume Challenge](https://fatihkoc.net/posts/cloud-resume-challenge/)
 
