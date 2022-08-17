@@ -7,3 +7,5 @@ site/resources/
 .terraform
 .terraform.*
 .vscode
+node_modules
+package-lock.json
