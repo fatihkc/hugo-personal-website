@@ -1,6 +1,6 @@
 +++
 title = "Cloud Resume Challenge"
-description = "End-to-end serverless portfolio website"
+description = "End-to-end serverless portfolio website for Cloud Resume Challenge."
 date = "2022-08-22"
 aliases = ["devops-engineer", "cloud-resume-challenge", "terraform", "serverless", "aws-certification"]
 author = "Fatih Koç"
