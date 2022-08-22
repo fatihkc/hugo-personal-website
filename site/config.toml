@@ -1,5 +1,5 @@
 baseURL = "https://www.fatihkoc.net"
-title = "Fatih Koc"
+title = "Fatih Koç Portfolio, Blog"
 theme = "hugo-coder"
 languageCode = "en"
 defaultContentLanguage = "en"
@@ -10,8 +10,8 @@ pygmentsCodeFencesGuessSyntax = true
 enableEmoji = true
 
 [params]
-author = "Fatih Koc"
-description = "Fatih Koc's personal website"
+author = "Fatih Koç"
+description = "Fatih Koç's personal website. Things about DevOps, CI/CD, IaC etc. "
 keywords = "blog,developer,devops,personal"
 info = ["DevOps"]
 avatarURL = "images/avatar.jpg"
