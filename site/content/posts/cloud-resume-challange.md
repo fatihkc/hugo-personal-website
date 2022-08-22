@@ -37,7 +37,7 @@ I knew most of the technical stuff in the challenge, so I decided to use Terrafo
 
 ## What did I learn?
 
-I used new tools and turns out I am a fast learner. A few years ago this challenge can take forever. However, the main thing about this challenge is the book itself. I learned a few tricks about understanding technologies, documentation reading, and career changes. I also started blogging with this post. I have another blog idea and I am exiting about it. 
+I used new tools and turns out I am a fast learner. A few years ago this challenge can take forever. However, the main thing about this challenge is the [book](https://cloudresumechallenge.dev/book/) itself. I learned a few tricks about understanding technologies, documentation reading, and career changes. I also started blogging with this post. I have another blog idea and I am exiting about it. 
 
 I figured out my resume had a huge problem. I was generally working alone with infrastructures and used so many different tools, architectures, etc. But I couldn't prove it. GitHub repositories were created years ago, I don’t have a certificate, I don’t blog about anything, etc. If you want to get a cloud job, your resume must be sexy. If you can’t pass the HR resume process, your technical knowledge is not that important. Nobody will ask you about your previous work, test your skills or give assignments. 
 
