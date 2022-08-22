@@ -1,4 +1,4 @@
-# hugo-personal-website
+# Portfolio Project
 
 This repository contains my personal website, which is built using [Hugo](https://gohugo.io/). The theme is [hugo-coder](https://hugo-coder.netlify.app/) and the website is hosted on [AWS](https://www.aws.amazon.com/). The website is available at [fatihkoc.net](https://fatihkoc.net).
 
