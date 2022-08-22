@@ -1,5 +1,5 @@
 baseURL = "https://www.fatihkoc.net"
-title = "Fatih Koç Portfolio, Blog"
+title = "Fatih Koç Portfolio"
 theme = "hugo-coder"
 languageCode = "en"
 defaultContentLanguage = "en"
