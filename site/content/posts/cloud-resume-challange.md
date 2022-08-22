@@ -1,6 +1,6 @@
 +++
 title = "Cloud Resume Challenge"
-description = "Hugo, the world's fastest framework for building websites"
+description = "End-to-end serverless portfolio website"
 date = "2022-08-22"
 aliases = ["devops-engineer", "cloud-resume-challenge", "terraform", "serverless", "aws-certification"]
 author = "Fatih Koç"
