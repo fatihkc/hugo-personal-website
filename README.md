@@ -1,6 +1,6 @@
 # Portfolio Project
 
-This repository contains my personal website, which is built using [Hugo](https://gohugo.io/). The theme is [hugo-coder](https://hugo-coder.netlify.app/) and the website is hosted on [AWS](https://www.aws.amazon.com/). The website is available at [fatihkoc.net](https://fatihkoc.net).
+This repository contains my personal website, which is built using [Hugo](https://gohugo.io/). The theme is [hugo-coder](https://hugo-coder.netlify.app/) and the website is hosted on [AWS](https://www.aws.amazon.com/). The website is available at [fatihkoc.net](https://fatihkoc.net). You can also read my blog post about the project [here](https://www.fatihkoc.net/posts/cloud-resume-challange/).
 
 I created this project for [Cloud Resume Challange](https://cloudresumechallenge.dev/). My website was down for a few years and I was planning to fix it but it never happened. I decided to use this challenge as an opportunity to fix it. I also wanted to learn more about AWS and I thought this would be a good opportunity to do so. 
 
@@ -93,18 +93,3 @@ The terraform workflow is defined in `.github/workflows/terraform.yml`. The work
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
-
-Steps for first blog post:
-
-- Build website
-- Create IAM user
-- aws configure
-- Create S3 bucket for state
-- Create DynamoDB table for state
-- Write Terraform script for s3 bucket, acm, cloudfront, route53
-- Import Route53 if exists
-- Write site deployment to config.toml
-- GitHub Actions for site and terraform
-- Cloudfront functions for redirect
-- Smoke test
-- Write your first blog post
