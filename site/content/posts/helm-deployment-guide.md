@@ -206,9 +206,14 @@ Liveness probes must be simple like sending a ping. On the other hand, readiness
 securityContext:
   allowPrivilegeEscalation: false
   readOnlyRootFilesystem: true
+  runAsNonRoot: true
+  runAsUser: 1000
+  capabilities:
+    drop:
+    - ALL
 ```
 
-The security context is one of the most important things about deployment. This mechanism is changing with the new Kubernetes releases but the idea is still the same. Do you want to allow privilege escalation? No. Read-only filesystem? Hell yeah. And more things like that. Check out [documentation](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) about security contexts.
+The security context is one of the most important things about deployment. This mechanism is changing with the new Kubernetes releases but the idea is still the same. Do you want to allow privilege escalation? No. Read-only filesystem? Hell yeah. And more things like that. Don't forget to drop all capabilities. Check out [documentation](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) about security contexts. 
 
 ## Affinity
 
