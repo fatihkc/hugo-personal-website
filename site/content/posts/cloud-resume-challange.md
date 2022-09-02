@@ -15,13 +15,13 @@ Then I found out Cloud Resume Challenge. It’s giving you the basic steps of a 
 
 ## Cloud Resume Challenge Steps
 
-![Cloud Resume Challenge Steps](/images/cloud-resume-challenge-steps.jpg)
+![Cloud Resume Challenge Steps](/images/cloud-resume-challenge/cloud-resume-challenge-steps.jpg)
 
 You can check the steps on the [website](https://cloudresumechallenge.dev/docs/the-challenge/). They change in time. It seems basic right? You can probably finish it within a month just using your spare time. Also, there are additional steps for making it amazing. You can also check out the book written for this challenge. It is really helpful for getting a cloud job. 
 
 ## Technologies
 
-![Diagram](/images/diagram.png?style=centerme)
+![Diagram](/images/cloud-resume-challenge/diagram.png)
 
 You can check my GitHub [repository](https://github.com/fatihkc) for this challenge. I am not gonna give the details about technical things. You can check the repo and read the comments. I skipped the certification part. I will explain it later.
 
