@@ -1,7 +1,7 @@
 +++
 title = "Ultimate Kubernetes Deployment Guide"
-description = "Kubernetes deployment tips and tricks for beginners and experts."
-date = "2022-09-02"
+description = "Kubernetes deployment tips and tricks for beginners and experts. Create a Kubernetes cluster with Kind, deploy your app with Helm, and scale it up."
+date = "2022-09-03"
 aliases = ["kubernetes", "helm", "kind", "deployment guide", "kubernetes deployment"]
 author = "Fatih Koç"
 +++
@@ -36,7 +36,7 @@ git clone https://github.com/fatihkc/ultimate-k8s-deployment-guide.git
 
 ## Kind
 
-Kind is a great tool for creating Kubernetes clusters without losing time. Normally you need virtual machines for installation but kind is using containers as virtual machines. That is brilliant technology. Simple to use, need much fewer resources, and is fast. You can also use it for testing different Kubernetes versions and checking if your application is ready for an upgrade or not. You can always choose [hard way](https://github.com/kelseyhightower/kubernetes-the-hard-way). It is really good for understanding what is going on with your cluster. 3 years ago I was installing Kubernetes with Ansible and Vagrant. Check [this](https://github.com/fatihkc/end-to-end-devops) project if you want to know more about it.
+Kind is a great tool for creating Kubernetes clusters without losing time. Normally you need virtual machines for installation but Kind is using containers as virtual machines. That is brilliant technology. Simple to use, need much fewer resources, and is fast. You can also use it for testing different Kubernetes versions and checking if your application is ready for an upgrade or not. You can always choose [hard way](https://github.com/kelseyhightower/kubernetes-the-hard-way). It is really good for understanding what is going on with your cluster. 3 years ago I was installing Kubernetes with Ansible and Vagrant. Check [this](https://github.com/fatihkc/end-to-end-devops) project if you want to know more about it.
 
 ```bash
 kind create cluster --config kind/cluster.yaml --name guide --image=kindest/node:v1.23.6
