@@ -33,6 +33,9 @@ jobs:
           submodules: true # Fetch Hugo themes
           fetch-depth: 0 
 
+      - name: Google Analytics
+        run: echo "googleAnalytics = \"${{ secrets.GOOGLEANALYTICS }}\"" >> config.toml
+
       # Runs a single command using the runners shell
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
