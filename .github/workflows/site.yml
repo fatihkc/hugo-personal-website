@@ -34,7 +34,7 @@ jobs:
           fetch-depth: 0 
 
       - name: Google Analytics
-        run: echo "googleAnalytics = \"${{ secrets.GOOGLEANALYTICS }}\"" >> config.toml
+        run: echo "googleAnalytics = '${{ secrets.GOOGLEANALYTICS }}'" >> config.toml
 
       # Runs a single command using the runners shell
       - name: Setup Hugo
