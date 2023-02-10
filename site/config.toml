@@ -8,7 +8,7 @@ pygmentsStyle = "bw"
 pygmentsCodeFences = true
 pygmentsCodeFencesGuessSyntax = true
 enableEmoji = true
-googleAnalytics =
+googleAnalytics = 
 
 [params]
 author = "Fatih Koç"
@@ -81,6 +81,12 @@ weight = 6
 url = "https://fatihkoc.net/index.xml"
 rel = "alternate"
 type = "application/rss+xml"
+
+[[params.social]]
+name = "Upwork"
+icon = "fa fa-2x fa-money"
+weight = 7
+url = "https://www.upwork.com/freelancers/fatihkoc"
 
 [languages.en]
 languageName = ":uk:"
