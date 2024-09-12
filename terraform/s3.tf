@@ -1,6 +1,5 @@
 module "s3_bucket" {
   source = "terraform-aws-modules/s3-bucket/aws"
-
   bucket = "fatihkocnet-hugo"
   acl    = "public-read"
   versioning = {
@@ -17,6 +16,6 @@ module "s3_bucket" {
       redirect = {
         replace_key_prefix_with = "index.html"
       }
-      }]
+    }]
   }
 }

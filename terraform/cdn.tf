@@ -72,9 +72,9 @@ module "cdn" {
 }
 
 resource "aws_cloudfront_function" "redirect" {
-  name = "redirect"
+  name    = "redirect"
   runtime = "cloudfront-js-1.0"
   comment = "Redirects requests to index.html"
   publish = true
-  code = file("scripts/redirect.js")
+  code    = file("scripts/redirect.js")
 }
