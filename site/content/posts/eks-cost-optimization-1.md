@@ -6,7 +6,7 @@ aliases = ["eks", "cost-optimization", "kubernetes", "aws", "eks-cost-optimizati
 author = "Fatih Koç"
 +++
 
-Elastic Kubernetes Service (EKS) stands out in the Kubernetes ecosystem for its powerful cloud-based solutions. However, many organizations struggle with managing costs effectively. This two-part blog series dives deep into strategies for reducing expenses on both Kubernetes and AWS sides. We start with universally applicable Kubernetes tips, enriched with contextual understanding and real-world scenarios.
+Elastic Kubernetes Service (EKS) stands out in the Kubernetes ecosystem for its powerful cloud-based solutions. However, many organizations struggle with managing costs effectively. This [two-part](https://fatihkoc.net/posts/eks-cost-optimization-2/) blog series dives deep into strategies for reducing expenses on both Kubernetes and AWS sides. We start with universally applicable Kubernetes tips, enriched with contextual understanding and real-world scenarios.
 
 ## Monitoring and Logging: The First Step in Cost Management
 
@@ -106,6 +106,6 @@ eWe have discussed most of the tips and tricks about Kubernetes cost management.
 
 ## Part Two
 
-Kubernetes cost optimization can be used for every platform, including cloud and bare-metal infrastructures. In the next chapter(), we will discuss the cost optimization of AWS components. We will focus on leveraging AWS services, understanding pricing models, and implementing AWS-specific features for cost-effective EKS management.
+Kubernetes cost optimization can be used for every platform, including cloud and bare-metal infrastructures. In the [next chapter](https://fatihkoc.net/posts/eks-cost-optimization-2/), we will discuss the cost optimization of AWS components. We will focus on leveraging AWS services, understanding pricing models, and implementing AWS-specific features for cost-effective EKS management.
 
 This blog is originally published on [Medium](https://medium.com/vngrs/elastic-kubernetes-service-cost-optimization-a-comprehensive-guide-part-one-ef51b3c64ed5).

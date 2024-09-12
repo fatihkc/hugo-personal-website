@@ -10,7 +10,7 @@ author = "Fatih Koç"
 
 When companies or projects try to choose the right distribution for Kubernetes, they know most have similar features. High availability, resilience, support, addons for storage, security, etc. It comes to the single most important thing when making a decision. **Cost.**
 
-In the first part of this series, we discussed general Kubernetes cost optimization strategies. Now, further delve into Amazon Web Services (AWS) specific strategies to optimize your Elastic Kubernetes Service (EKS) costs. This part focuses on leveraging AWS services, understanding pricing models, and implementing AWS-specific features for cost-effective EKS management.
+In the [first part](https://fatihkoc.net/posts/eks-cost-optimization-1/) of this series, we discussed general Kubernetes cost optimization strategies. Now, further delve into Amazon Web Services (AWS) specific strategies to optimize your Elastic Kubernetes Service (EKS) costs. This part focuses on leveraging AWS services, understanding pricing models, and implementing AWS-specific features for cost-effective EKS management.
 
 ## Understanding the AWS EKS Pricing Model
 
