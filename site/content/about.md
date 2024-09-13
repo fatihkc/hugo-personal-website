@@ -6,4 +6,4 @@ aliases = ["about-us", "about-fatih-koc", "contact", "fatih-koc"]
 author = "Fatih Koc"
 +++
 
-![Resume](/images/fatih-koc-resume.png)
+![Resume](/images/fatih-koc-resume.jpeg)
