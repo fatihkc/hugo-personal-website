@@ -10,7 +10,7 @@ pygmentsCodeFencesGuessSyntax = true
 enableEmoji = true
 
 [params.googleTagManager]
-#id
+#id =
 
 [params]
 author = "Fatih Koç"
