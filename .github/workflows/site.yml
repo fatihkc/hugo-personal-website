@@ -34,7 +34,7 @@ jobs:
           fetch-depth: 0 
 
       - name: Google Analytics
-        run: sed -i -e "s/googleAnalytics =/googleAnalytics= '${{ secrets.GOOGLEANALYTICS }}'/g" config.toml
+        run: sed -i -e "s/#id =/id= '${{ secrets.GOOGLEANALYTICS }}'/g" config.toml
 
       # Runs a single command using the runners shell
       - name: Setup Hugo

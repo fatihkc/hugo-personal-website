@@ -8,7 +8,9 @@ pygmentsStyle = "bw"
 pygmentsCodeFences = true
 pygmentsCodeFencesGuessSyntax = true
 enableEmoji = true
-#googleAnalytics = 
+
+[params.googleTagManager]
+#id
 
 [params]
 author = "Fatih Koç"
