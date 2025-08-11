@@ -59,36 +59,36 @@ tag = "tags"
 author = "authors"
 
 [[params.social]]
-name = "Github"
-icon = "fa fa-2x fa-github"
-weight = 1
-url = "https://github.com/fatihkc/"
-
-[[params.social]]
-name = "Twitter"
-icon = "fa fa-2x fa-twitter"
-weight = 2
-url = "https://twitter.com/fatihkocnet/"
-
-[[params.social]]
 name = "LinkedIn"
 icon = "fa fa-2x fa-linkedin"
-weight = 3
+weight = 1
 url = "https://www.linkedin.com/in/fatihhkoc/"
 
 [[params.social]]
-name = "RSS"
-icon = "fa fa-2x fa-rss"
-weight = 6
-url = "https://fatihkoc.net/index.xml"
-rel = "alternate"
-type = "application/rss+xml"
+name = "Github"
+icon = "fa fa-2x fa-github"
+weight = 2
+url = "https://github.com/fatihkc/"
 
 [[params.social]]
 name = "Upwork"
 icon = "fa fa-2x fa-money"
-weight = 7
+weight = 3
 url = "https://www.upwork.com/freelancers/fatihkoc"
+
+[[params.social]]
+name = "Twitter"
+icon = "fa fa-2x fa-twitter"
+weight = 4
+url = "https://twitter.com/fatihkocnet/"
+
+[[params.social]]
+name = "RSS"
+icon = "fa fa-2x fa-rss"
+weight = 5
+url = "https://fatihkoc.net/index.xml"
+rel = "alternate"
+type = "application/rss+xml"
 
 [languages.en]
 languageName = ":uk:"
