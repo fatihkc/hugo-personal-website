@@ -1,8 +1,8 @@
 # Portfolio Project
 
-This repository contains my personal website, which is built using [Hugo](https://gohugo.io/). The theme is [hugo-coder](https://hugo-coder.netlify.app/) and the website is hosted on [AWS](https://www.aws.amazon.com/). The website is available at [fatihkoc.net](https://fatihkoc.net). You can also read my blog post about the project [here](https://www.fatihkoc.net/posts/cloud-resume-challange/).
+This repository contains my personal website, which is built using [Hugo](https://gohugo.io/). The theme is [hugo-coder](https://hugo-coder.netlify.app/) and the website is hosted on [AWS](https://www.aws.amazon.com/). The website is available at [fatihkoc.net](https://fatihkoc.net). You can also read my blog post about the project [here](https://www.fatihkoc.net/posts/cloud-resume-challenge/).
 
-I created this project for [Cloud Resume Challange](https://cloudresumechallenge.dev/). My website was down for a few years and I was planning to fix it but it never happened. I decided to use this challenge as an opportunity to fix it. I also wanted to learn more about AWS and I thought this would be a good opportunity to do so. 
+I created this project for [Cloud Resume Challenge](https://cloudresumechallenge.dev/). My website was down for a few years and I was planning to fix it but it never happened. I decided to use this challenge as an opportunity to fix it. I also wanted to learn more about AWS and I thought this would be a good opportunity to do so. 
 
 ## Technologies:
 

@@ -58,7 +58,7 @@ I build resilient, secure, and cost‑effective cloud platforms on AWS, Azure, a
 - Kubernetes deployment guide: [/posts/k8s-deployment-guide/](/posts/k8s-deployment-guide/)
 - EKS cost optimization (Part 1): [/posts/eks-cost-optimization-1/](/posts/eks-cost-optimization-1/)
 - EKS cost optimization (Part 2): [/posts/eks-cost-optimization-2/](/posts/eks-cost-optimization-2/)
-- Cloud Resume Challenge write‑up: [/posts/cloud-resume-challange/](/posts/cloud-resume-challange/)
+- Cloud Resume Challenge write‑up: [/posts/cloud-resume-challenge/](/posts/cloud-resume-challenge/)
 
 ## How I work
 
