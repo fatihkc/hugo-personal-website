@@ -2,7 +2,7 @@
 title = "Elastic Kubernetes Service Cost Optimization: A Comprehensive Guide - Part Two"
 description = "Cost optimization is a crucial aspect of Kubernetes management. This blog series explores strategies for reducing expenses on both Kubernetes and AWS sides, starting with universally applicable Kubernetes tips."
 date = "2024-05-21"
-aliases = ["eks", "cost-optimization", "kubernetes", "aws", "eks-cost-optimization"]
+aliases = ["/posts/eks-cost-optimization-part-2/", "/eks-cost-guide-2/", "/aws-eks-optimization-2/"]
 author = "Fatih Koç"
 tags = ["eks", "aws", "cost-optimization", "spot-instances", "fargate"]
 +++
