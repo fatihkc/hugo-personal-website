@@ -92,6 +92,8 @@ type = "application/rss+xml"
 
 [languages.en]
 languageName = ":uk:"
+contentDir = "content"
+weight = 1
 
 [[languages.en.menu.main]]
 name = "About"
