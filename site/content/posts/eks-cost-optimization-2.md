@@ -4,6 +4,7 @@ description = "Cost optimization is a crucial aspect of Kubernetes management. T
 date = "2024-05-21"
 aliases = ["eks", "cost-optimization", "kubernetes", "aws", "eks-cost-optimization"]
 author = "Fatih Koç"
+tags = ["eks", "aws", "cost-optimization", "spot-instances", "fargate"]
 +++
 
 ## Introduction: Deep Diving into AWS EKS Cost Optimization

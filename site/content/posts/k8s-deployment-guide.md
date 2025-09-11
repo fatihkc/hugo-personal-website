@@ -4,6 +4,7 @@ description = "Kubernetes deployment tips and tricks for beginners and experts. 
 date = "2022-09-03"
 aliases = ["kubernetes", "helm", "kind", "deployment guide", "kubernetes deployment"]
 author = "Fatih Koç"
+tags = ["kubernetes", "docker", "helm", "devops", "containers"]
 +++
 
 With the rising of cloud technologies, companies had a chance to create, deploy and manage their applications without paying upfront. In the old days, you need to buy some rack, network cables, servers, coolers, etc. It was taking too much time, and generally, huge tech companies took advantage of their vendor-locking technology stacks. You didn’t have much choice, right? With the free software movement and foundations like [CNCF](https://www.cncf.io/), standardization of the technologies becomes much more important. Nobody wants vendor-locking because it kills disruptive ideas. 

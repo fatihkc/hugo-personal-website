@@ -4,6 +4,7 @@ description = "End-to-end serverless portfolio website for Cloud Resume Challeng
 date = "2022-08-22"
 aliases = ["devops-engineer", "cloud-resume-challenge", "terraform", "serverless", "aws-certification"]
 author = "Fatih Koç"
+tags = ["aws", "serverless", "terraform", "hugo", "cloudfront"]
 +++
 
 Hello everyone, I am Fatih. I am working in the cloud area for over two years. Currently working as a DevOps Engineer at FTech Labs, we're building a super app for crypto exchanges. Today our topic is [Cloud Resume Challenge](https://cloudresumechallenge.dev/).  
