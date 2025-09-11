@@ -1,4 +1,4 @@
-baseURL = "https://www.fatihkoc.net"
+baseURL = "https://fatihkoc.net"
 title = "Fatih Koç - DevOps Engineer | Kubernetes & Cloud Expert"
 theme = "hugo-coder"
 languageCode = "en"
