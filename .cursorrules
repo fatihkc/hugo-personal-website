@@ -16,17 +16,7 @@ _(For file/path exclusions see `.cursorignore`)_
 - Small, atomic PR-sized changes; include a one-paragraph rationale in commit body when touching Terraform or workflows.
 
 ## Authoring Hugo Content (site/)
-- Default to Markdown with YAML front-matter:
-  ```yaml
-  ---
-  title: "<Concise Title>"
-  date: "<YYYY-MM-DD>"
-  draft: false
-  description: "<120–160 chars SEO summary>"
-  tags: ["devops","kubernetes","aws"]   # keep to 3–6
-  cover: "/images/<slug>.webp"          # use webp where possible
-  ---
-  ```
+
 - Prefer built-in shortcodes over raw HTML. Use code blocks with language hints.
 - Add accessible **alt** text for images; keep image widths reasonable and use WebP when possible.
 
