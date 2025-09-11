@@ -9,7 +9,7 @@ _(For file/path exclusions see `.cursorignore`)_
 - Infra is defined in `terraform/` and uses remote state & locking with **S3 + DynamoDB**.
 - CI/CD via **GitHub Actions**: build & deploy site; separate Terraform workflow (manual). E2E tests run with **Cypress** against the deployed site.
 - Content and layouts live under `site/`. Do **not** commit secrets or credentials.
-
+- Do not suggest to add Google Analytics/Tag Manager. GitHub Actions sets id for Google Analytics.
 
 ## Style & Commit Conventions
 - Use **Conventional Commits**: `feat:`, `fix:`, `docs:`, `chore:`, `test:`, `ci:`, `refactor:`, `perf:`.
