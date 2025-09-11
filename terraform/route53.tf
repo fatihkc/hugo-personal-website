@@ -14,13 +14,18 @@ resource "aws_route53_record" "MX" {
   records = ["10 mx.yandex.net."]
 }
 
-resource "aws_route53_record" "CNAME" {
+resource "aws_route53_record" "www" {
   depends_on = [
-    aws_route53_zone.primary
+    module.cdn,
+    aws_acm_certificate_validation.certvalidation
   ]
   zone_id = aws_route53_zone.primary.zone_id
   name    = "www.${var.domain_name}"
-  type    = "CNAME"
-  ttl     = 300
-  records = ["${var.domain_name}"]
+  type    = "A"
+
+  alias {
+    name                   = module.cdn.cloudfront_distribution_domain_name
+    zone_id                = module.cdn.cloudfront_distribution_hosted_zone_id
+    evaluate_target_health = true
+  }
 }
