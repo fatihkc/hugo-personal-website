@@ -108,4 +108,4 @@ eWe have discussed most of the tips and tricks about Kubernetes cost management.
 
 Kubernetes cost optimization can be used for every platform, including cloud and bare-metal infrastructures. In the [next chapter](https://fatihkoc.net/posts/eks-cost-optimization-2/), we will discuss the cost optimization of AWS components. We will focus on leveraging AWS services, understanding pricing models, and implementing AWS-specific features for cost-effective EKS management.
 
-This blog is originally published on [Medium](https://medium.com/vngrs/elastic-kubernetes-service-cost-optimization-a-comprehensive-guide-part-one-ef51b3c64ed5).
+This article is also available on [Medium](https://medium.com/vngrs/elastic-kubernetes-service-cost-optimization-a-comprehensive-guide-part-one-ef51b3c64ed5).

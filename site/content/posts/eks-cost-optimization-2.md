@@ -78,4 +78,4 @@ Price optimization can be tricky. You need capacity, faster communication, and h
 
 Lastly, AWS Well-Architected Framework helps customers to make decisions about their workloads. Cost Optimization Piller whitepaper can help you with cost reduction. Check out the official [whitepaper](https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/welcome.html). Practice Cloud Financial Management can give you an idea about AWS cost management.
 
-This blog is originally published on [Medium](https://medium.com/vngrs/elastic-kubernetes-service-cost-optimization-a-comprehensive-guide-part-two-17077e59aede).
+This article is also available on [Medium](https://medium.com/vngrs/elastic-kubernetes-service-cost-optimization-a-comprehensive-guide-part-two-17077e59aede).

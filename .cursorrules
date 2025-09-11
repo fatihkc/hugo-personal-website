@@ -1,0 +1,92 @@
+
+
+
+# Cursor Project Rules — hugo-personal-website
+_(For file/path exclusions see `.cursorignore`)_
+
+## Project Context (facts — do not invent)
+- Static site built with **Hugo** using **hugo-coder** theme. Hosted on **AWS** via S3 (static hosting), **CloudFront** (CDN), **Route53** (DNS), **ACM** (TLS).
+- Infra is defined in `terraform/` and uses remote state & locking with **S3 + DynamoDB**.
+- CI/CD via **GitHub Actions**: build & deploy site; separate Terraform workflow (manual). E2E tests run with **Cypress** against the deployed site.
+- Content and layouts live under `site/`. Do **not** commit secrets or credentials.
+
+
+## Style & Commit Conventions
+- Use **Conventional Commits**: `feat:`, `fix:`, `docs:`, `chore:`, `test:`, `ci:`, `refactor:`, `perf:`.
+- Small, atomic PR-sized changes; include a one-paragraph rationale in commit body when touching Terraform or workflows.
+
+## Authoring Hugo Content (site/)
+- Default to Markdown with YAML front-matter:
+  ```yaml
+  ---
+  title: "<Concise Title>"
+  date: "<YYYY-MM-DD>"
+  draft: false
+  description: "<120–160 chars SEO summary>"
+  tags: ["devops","kubernetes","aws"]   # keep to 3–6
+  cover: "/images/<slug>.webp"          # use webp where possible
+  ---
+  ```
+- Prefer built-in shortcodes over raw HTML. Use code blocks with language hints.
+- Add accessible **alt** text for images; keep image widths reasonable and use WebP when possible.
+
+## Terraform Rules (terraform/)
+- Before suggesting changes, run (or propose running):  
+  `terraform fmt -recursive`, `terraform validate`, and `tflint`.
+- No hard-coded ARNs, IDs, or keys. Use variables & data sources. Keep backends in `terraform/backend.tf`.
+- For S3/CloudFront:
+  - Enforce `aws_s3_bucket_public_access_block` unless explicitly disabled with justification.
+  - CloudFront OAC/OAI must match bucket policy; update both sides together.
+- When you see `Backend configuration changed` or graph cycles:  
+  propose **`terraform init -reconfigure`** for backend tweaks, or **`-migrate-state`** when intentionally moving state, and break dependency cycles by splitting resources/modules if needed.
+- Provide a plan of record in PR body for any infra changes (what/who/why/rollback).
+
+## GitHub Actions (.github/workflows/)
+- Site workflow: keep steps minimal → checkout → setup Hugo → build → sync to S3 → invalidate CloudFront → run Cypress.
+- Terraform workflow: remains **manual** (`workflow_dispatch`). Add `fmt/validate/plan` gates before `apply`.
+- Never print secrets in logs. Use OIDC to AWS where possible; avoid long-lived keys.
+
+## Cypress / E2E (e2e/)
+- Write resilient tests (select by `data-testid`).
+- Keep tests idempotent and independent. Include one smoke test that checks critical pages (/, /blog, /about).
+- In CI, run against the production URL or a preview; fail fast with clear error messages and screenshots.
+
+## Safe Changes Checklist (AI must follow)
+- [ ] If editing Terraform, also open and review **related** bucket policies, CloudFront behaviors, and OAC/OAI wiring.
+- [ ] If editing Hugo config or theme params, verify local `hugo server` builds clean.
+- [ ] If touching workflows, ensure minimal permissions and cache keys are sane.
+- [ ] Update or add Cypress tests for changed routes/components.
+- [ ] Never introduce plaintext credentials, tokens, or connection strings.
+
+## Commands (suggest / run locally)
+```bash
+# Local dev
+hugo server --source site
+
+# Build
+hugo --source site --minify
+
+# Terraform hygiene
+terraform -chdir=terraform fmt -recursive
+terraform -chdir=terraform validate
+tflint --chdir terraform
+
+# E2E (adjust baseUrl in cypress.config)
+npm --prefix e2e ci && npm --prefix e2e run cy:run
+```
+
+## Common Edits (how the AI should help)
+- **Add a blog post**: create `site/content/posts/<slug>/index.md` with front-matter above; include hero image path under `images/`.
+- **New page/section**: create under `site/content/<section>/` and update menu in theme params/config while preserving hugo-coder conventions.
+- **Tune performance**: recommend image WebP conversion, `--minify` builds, CloudFront longer max-age for immutable assets, and proper `Cache-Control`.
+- **Fix broken deploy**: check Actions logs; verify AWS creds/OIDC, Hugo version, S3 sync include/exclude, then invalidate CloudFront.
+
+## File-specific Guidance
+- `site/config.*` (or `hugo.toml`): keep baseURL correct; avoid absolute links in content. If changing theme params, document what changed and why.
+- `terraform/**`: prefer modules and explicit dependencies only where necessary; avoid `depends_on` unless required. Tag all AWS resources consistently.
+- `e2e/**`: keep selectors stable; no sleep-based waits—use assertions with retries.
+
+## Review Gates for PRs
+- Terraform diff posted (plan) and explained.
+- Lighthouse-like checklist: title tags present, meta description set, images have alt, no broken internal links.
+- Security pass: no secrets, least-privileged IAM, logs don’t leak.

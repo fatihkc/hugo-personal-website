@@ -1,0 +1,30 @@
+
+
+
+# Hugo build outputs (generated, should be ignored by Cursor)
+site/public/**
+site/resources/**
+site/.hugo_build.lock
+
+# Image assets (large/binary files)
+**/*.png
+**/*.jpg
+**/*.jpeg
+**/*.gif
+**/*.webp
+**/*.svg
+
+# Node / Cypress dependencies
+e2e/node_modules/**
+e2e/.cache/**
+e2e/dist/**
+
+# Terraform local state (should never be versioned)
+terraform/.terraform/**
+terraform/*.tfstate
+terraform/*.tfstate.*
+
+# General system files
+.DS_Store
+*.log
+*.lock
