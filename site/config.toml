@@ -14,7 +14,7 @@ enableEmoji = true
 
 [params]
 author = "Fatih Koç"
-description = "Fatih Koç's personal website. Things about DevOps, CI/CD, IaC etc. Always looking for new challenges."
+description = "Fatih Koç personal website. Things about DevOps, CI/CD, IaC etc. Always looking for new challenges."
 keywords = "DevOps Engineer,Kubernetes,AWS,Azure,GCP,Terraform,Infrastructure as Code,CI/CD,Site Reliability Engineering,Cloud Architecture"
 info = ["DevOps Engineer"]
 avatarURL = "images/fatih-koc.jpg"
