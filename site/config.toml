@@ -67,13 +67,13 @@ url = "https://www.linkedin.com/in/fatihhkoc/"
 [[params.social]]
 name = "Github"
 icon = "fa fa-2x fa-github"
-weight = 2
+weight = 3
 url = "https://github.com/fatihkc/"
 
 [[params.social]]
 name = "Upwork"
-icon = "fa fa-2x fa-money"
-weight = 3
+icon = "fa fa-2x fa-briefcase"
+weight = 2
 url = "https://www.upwork.com/freelancers/fatihkoc"
 
 [[params.social]]

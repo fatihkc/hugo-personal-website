@@ -45,16 +45,17 @@ I help organizations build reliable, secure, and cost-effective cloud platforms.
 
 **Email:** [mail@fatihkoc.net](mailto:mail@fatihkoc.net?subject=DevOps%20Consulting%20Inquiry)
 
+**Upwork:** [**Hire me on Upwork →**](https://www.upwork.com/freelancers/fatihkoc) ⭐ *Top Rated freelancer with verified reviews*
+
 **Response Time:** I typically respond within 24 hours.
 
 ## 🤝 Let's Connect
 
 I'm always interested in discussing interesting technical challenges and potential collaborations.
-
-- **LinkedIn:** [fatihhkoc](https://www.linkedin.com/in/fatihhkoc/) — Professional updates and industry insights
-- **GitHub:** [fatihkc](https://github.com/fatihkc/) — Open source projects and code samples
-- **Twitter:** [fatihkocnet](https://twitter.com/fatihkocnet/) — DevOps thoughts and industry news
-- **Upwork:** [fatihkoc](https://www.upwork.com/freelancers/fatihkoc) — Professional freelance profile
+- **Upwork:** [My freelance profile](https://www.upwork.com/freelancers/fatihkoc)
+- **LinkedIn:** [Professional network](https://www.linkedin.com/in/fatihhkoc/)
+- **GitHub:** [Code and projects](https://github.com/fatihkc/)
+- **Twitter:** [Tech thoughts](https://twitter.com/fatihkocnet/)
 
 ## 📋 Project Inquiry
 
