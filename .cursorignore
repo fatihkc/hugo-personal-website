@@ -7,12 +7,10 @@ site/resources/**
 site/.hugo_build.lock
 
 # Image assets (large/binary files)
-**/*.png
 **/*.jpg
 **/*.jpeg
 **/*.gif
 **/*.webp
-**/*.svg
 
 # Node / Cypress dependencies
 e2e/node_modules/**
