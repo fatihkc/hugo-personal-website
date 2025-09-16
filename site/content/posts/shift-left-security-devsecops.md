@@ -1,33 +1,29 @@
 +++
-title = "Shift-Left Security Practices Developers Like"
-description = "Shift-Left Security practices developers actually like — with code examples, guardrails, and policy-as-code to reduce friction."
+title = "Shift Left Security Practices Developers Like"
+description = "Shift Left Security practices developers actually like — with code examples, guardrails, and policy as code to reduce friction."
 date = "2025-09-16"
 aliases = ["/shift-left-security-developer-friendly/", "/shift-left-security-practices/", "/shift-left-guardrails/"]
 author = "Fatih Koç"
-tags = ["devsecops", "kubernetes", "cloud-native", "sast", "security-automation", "ci-cd"]
+tags = ["devsecops", "kubernetes", "cloud native", "sast", "security automation", "ci/cd"]
 images = ["/images/shift-left-security/shift-left-security.png"]
 featuredImage = "/images/shift-left-security/shift-left-security.png"
 +++
 
-Security is often treated as a late-stage gate. In a cloud-native world, that's a tax on velocity. **Shift‑Left Security** flips the script: we integrate security earlier—during design, coding, and CI—so developers get fast, actionable feedback without leaving their flow.
+Security is often treated as a late stage gate. In a cloud native world, that's a tax on velocity. **Shift Left Security** flips the script: we integrate security earlier—during design, coding, and CI—so developers get fast, actionable feedback without leaving their flow.
 
-In this guide, I’ll share **developer‑friendly** practices I’ve used across teams, plus **ready‑to‑copy code examples** you can paste into repos today. I’ll also call out common traps and how to avoid “security theater.”
-
----
+In this guide, I'll share **developer friendly** practices I've used across teams, plus **ready to copy code examples** you can paste into repos today. I'll also call out common traps and how to avoid "security theater."
 
 ## A quick story
 
-On a microservices project, a customer had layered on too many security tools. Builds slowed, false positives spiked while observability lagged. We shifted feedback to the IDE and pre‑commit, moved deep scans to nightly, and added auto‑fix hints. Two sprints later: faster merges, fewer vulnerabilities reaching staging, and a happier team. Developer experience and timing beat raw coverage.
+On a microservices project, a customer had layered on too many security tools. Builds slowed, false positives spiked while observability lagged. We shifted feedback to the IDE and pre commit, moved deep scans to nightly, and added auto fix hints. Two sprints later: faster merges, fewer vulnerabilities reaching staging, and a happier team. Developer experience and timing beat raw coverage.
 
----
+## What developer friendly means
 
-## What developer‑friendly means
-
-* **Fast feedback**: seconds, not minutes, for inner‑loop checks.
-* **Low noise**: start with high‑signal rules; phase in stricter ones.
-* **In‑flow**: IDE, pre‑commit, PR checks—no context switching.
-* **Transparent**: policies as code; exceptions time‑bound and auditable.
-* **Learning‑oriented**: every failure teaches the fix.
+* **Fast feedback**: seconds, not minutes, for inner loop checks.
+* **Low noise**: start with high signal rules; phase in stricter ones.
+* **In flow**: IDE, pre-commit, PR checks—no context switching.
+* **Transparent**: policies as code; exceptions time bound and auditable.
+* **Learning oriented**: every failure teaches the fix.
 
 For broader context, see [**OWASP ASVS**](https://owasp.org/www-project-application-security-verification-standard/) and [**NIST SSDF**](https://csrc.nist.gov/Projects/ssdf). 
 
@@ -35,9 +31,9 @@ Also see the [OWASP DevSecOps Guidelines](https://owasp.org/www-project-devsecop
 
 ---
 
-## Shift‑Left Security in practice (with code)
+## Shift Left Security in practice (with code)
 
-Below are **plug‑and‑play snippets** that respect the inner loop. Start small—pick two—and expand.
+Below are **plug and play snippets** that respect the inner loop. Start small—pick two—and expand.
 
 ### 1) Pre‑commit essentials: secrets + basic SAST
 
@@ -67,7 +63,7 @@ repos:
 
 > Tip: Gate only on **critical or high-confidence** findings at commit time. Expand to medium/low in PR or nightly.
 
-Optional: tighten Gitleaks with custom allow‑lists.
+Optional: tighten Gitleaks with custom allow lists.
 
 ```toml
 # .gitleaks.toml (example)
@@ -153,7 +149,7 @@ jobs:
           severity: "CRITICAL,HIGH"
 ```
 
-### 3) Policy‑as‑Code with OPA: block risky images in CI
+### 3) Policy as Code with OPA: block risky images in CI
 
 Unwritten security rules only surface during review. OPA turns them into testable, versioned policy. A small Rego rule like “only signed images from our registry” makes the decision explicit and produces clear pass/fail reasons.
 
@@ -211,7 +207,7 @@ If any violations are returned, print them and fail the job. For more on secure 
 
 ### 4) Kubernetes: Pod Security Standards via labels (quick win)
 
-Kubernetes defaults allow risky capabilities—privileged pods, host mounts, running as root. Most apps don’t need them. Namespace‑level Pod Security Admission labels that enforce the Pod Security Standards are the fastest way to shut off bad defaults. Label the namespace and whole classes of risk disappear. Some workloads will need exceptions, but those become explicit decisions.
+Kubernetes defaults allow risky capabilities like privileged pods, host mounts, running as root. Most apps don't need them. Namespace level Pod Security Admission labels that enforce the Pod Security Standards are the fastest way to shut off bad defaults. Label the namespace and whole classes of risk disappear. Some workloads will need exceptions, but those become explicit decisions.
 
 ```yaml
 # namespaces/restricted.yaml
@@ -229,7 +225,7 @@ Lock down common Pod risks with a default template.
 
 ### 5) Safer Dockerfile (small changes, big impact)
 
-Many Dockerfiles run as root and include unnecessary packages. Prefer a distroless runtime and a non‑root user to ship a smaller, safer image. You’ll cut CVEs and attack surface, reduce registry storage and network transfer, and speed image pulls. Build times also drop when you prune dev dependencies, shrink the build context, and leverage layer caching—distroless itself doesn’t make builds faster. Debugging is harder without a shell, so keep a separate -debug image for staging.
+Many Dockerfiles run as root and include unnecessary packages. Prefer a distroless runtime and a non‑root user to ship a smaller, safer image. You’ll cut CVEs and attack surface, reduce registry storage and network transfer, and speed image pulls. Build times also drop when you prune dev dependencies, shrink the build context, and leverage layer caching. Distroless itself doesn’t make builds faster. Debugging is harder without a shell, so keep a separate -debug image for staging.
 
 * Distroless runtime → smaller image, fewer CVEs, faster pulls, lower registry storage.
 * `USER` non‑root → safer by default.
@@ -365,7 +361,7 @@ jobs:
 
 ## Common pitfalls (and fixes)
 
-* **False‑positive fatigue** → start with **high‑confidence** rules; add suppressions with context.
+* **False positive fatigue** → start with **high confidence** rules; add suppressions with context.
 * **Slow pipelines** → parallelize; cache dependencies; schedule deep scans **nightly**.
 * **Opaque decisions** → keep policies as code; require rationale on exceptions.
 * **“Security says no” culture** → create **security champions** within dev teams.
@@ -375,7 +371,7 @@ jobs:
 
 ## Tools & when to use them (quick table)
 
-| Problem         | Fast inner‑loop                          | PR/CI guardrail                         | Scheduled/deep                                   |
+| Problem         | Fast inner loop                          | PR/CI guardrail                         | Scheduled/deep                                   |
 | --------------- | ---------------------------------------- | --------------------------------------- | ------------------------------------------------ |
 | Secrets leakage | pre-commit + Gitleaks                    | Gitleaks Action                         | Org/repo-wide secret scanning                    |
 | Code vulns      | Semgrep targeted rules                   | Semgrep CI (SARIF upload)               | Semgrep full rulesets + CodeQL                   |
@@ -388,7 +384,7 @@ jobs:
 **What’s the difference between Shift-Left Security and DevSecOps?**
 Shift-Left is the practice (earlier checks), DevSecOps is the culture/process shift enabling it.
 
-**Does Shift‑Left Security slow developers down?**
+**Does Shift Left Security slow developers down?**
 Only if you push heavy checks into the inner loop. Keep fast checks local/PR; move heavy ones to nightly. Most teams recoup time via fewer hotfixes and less rework.
 
 **Do developers need to be security experts?**
@@ -398,16 +394,16 @@ No. They need sharp guardrails and actionable feedback. Security champions and s
 Tune rules with suppressions and allowlists in-repo; require justification in PRs; review exceptions monthly and prune stale ones.
 
 **What if a tool blocks a release?**
-Use severity thresholds (e.g., fail on high/critical). Allow time‑bound waivers with an owner and due date; track them in issues and audit regularly.
+Use severity thresholds (e.g., fail on high/critical). Allow time bound waivers with an owner and due date; track them in issues and audit regularly.
 
 ---
 
 ## Conclusion
 
-Shift‑Left Security succeeds when it respects developer time. Keep fast checks in the inner loop, move heavy analysis to nightly, and encode policy so decisions are visible and auditable. Favor modular, open‑source pieces so any tool can be swapped without lock‑in; upgrade to enterprise where it clearly pays off.
+Shift Left Security succeeds when it respects developer time. Keep fast checks in the inner loop, move heavy analysis to nightly, and encode policy so decisions are visible and auditable. Favor modular, open source pieces so any tool can be swapped without lock in; upgrade to enterprise where it clearly pays off.
 
 Enterprise options to evaluate: Prisma Cloud, SonarQube/SonarCloud, Snyk, Wiz, Aqua, Lacework, GitHub Advanced Security/GitLab Ultimate.
 
-Curious how to apply this to your platform? **Ping me via the [Contact]({{< relref "contact.md" >}}) page**—I’m happy to tailor a developer‑friendly rollout for your stack. 
+Curious how to apply this to your platform? **Ping me via the [Contact]({{< relref "contact.md" >}}) page**—I'm happy to tailor a developer friendly rollout for your stack. 
 
 Related reading: running Kubernetes on AWS? Check out my EKS cost optimization guides: [Part 1]({{< relref "posts/eks-cost-optimization-1.md" >}}) and [Part 2]({{< relref "posts/eks-cost-optimization-2.md" >}}).
