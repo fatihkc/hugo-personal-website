@@ -2,7 +2,6 @@
 title = "Cloud Resume Challenge"
 description = "End-to-end serverless portfolio website for Cloud Resume Challenge."
 date = "2022-08-22"
-aliases = ["/posts/cloud-resume-challenge/", "/resume-challenge/", "/aws-resume-project/"]
 author = "Fatih Koç"
 tags = ["aws", "serverless", "terraform", "hugo", "cloudfront"]
 +++

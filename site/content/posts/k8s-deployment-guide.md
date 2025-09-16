@@ -2,7 +2,6 @@
 title = "Ultimate Kubernetes Deployment Guide"
 description = "Kubernetes deployment tips and tricks for beginners and experts. Create a Kubernetes cluster with Kind, deploy your app with Helm, and scale it up."
 date = "2022-09-03"
-aliases = ["/posts/kubernetes-deployment-guide/", "/kubernetes-guide/", "/k8s-guide/"]
 author = "Fatih Koç"
 tags = ["kubernetes", "docker", "helm", "devops", "containers"]
 +++
