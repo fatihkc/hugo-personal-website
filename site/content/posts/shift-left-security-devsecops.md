@@ -21,7 +21,7 @@ On a microservices project, a customer had layered on too many security tools. B
 
 * **Fast feedback**: seconds, not minutes, for inner loop checks.
 * **Low noise**: start with high signal rules; phase in stricter ones.
-* **In flow**: IDE, pre-commit, PR checks—no context switching.
+* **In flow**: IDE, pre-commit, PR checks, no context switching.
 * **Transparent**: policies as code; exceptions time bound and auditable.
 * **Learning oriented**: every failure teaches the fix.
 
