@@ -9,7 +9,7 @@ images = ["/images/shift-left-security/shift-left-security.png"]
 featuredImage = "/images/shift-left-security/shift-left-security.png"
 +++
 
-Security is often treated as a late stage gate. In a cloud native world, that's a tax on velocity. **Shift Left Security** flips the script: we integrate security earlier—during design, coding, and CI—so developers get fast, actionable feedback without leaving their flow.
+Security is often treated as a late stage gate. In a cloud native world, that's a tax on velocity. **Shift Left Security** flips the script. We integrate security earlier. During design, coding, and CI—so developers get fast, actionable feedback without leaving their flow.
 
 In this guide, I'll share **developer friendly** practices I've used across teams, plus **ready to copy code examples** you can paste into repos today. I'll also call out common traps and how to avoid "security theater."
 

@@ -58,6 +58,8 @@ module "cdn" {
     compress        = true
     query_string    = true
 
+    response_headers_policy_id = aws_cloudfront_response_headers_policy.charset.id
+
     function_association = {
       viewer-request = {
         function_arn = aws_cloudfront_function.redirect.arn # Redirect to /index.html
@@ -77,4 +79,16 @@ resource "aws_cloudfront_function" "redirect" {
   comment = "Redirects requests to index.html"
   publish = true
   code    = file("scripts/redirect.js")
+}
+
+resource "aws_cloudfront_response_headers_policy" "charset" {
+  name = "charset-utf8-policy"
+
+  custom_headers_config {
+    items {
+      header   = "Content-Type"
+      value    = "text/html; charset=utf-8"
+      override = true
+    }
+  }
 }
