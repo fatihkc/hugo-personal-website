@@ -3,7 +3,7 @@ title = "Shift Left Security Practices Developers Like"
 description = "Shift Left Security practices developers actually like — with code examples, guardrails, and policy as code to reduce friction."
 date = "2025-09-16"
 author = "Fatih Koç"
-tags = ["devsecops", "kubernetes", "cloud native", "sast", "security automation", "ci/cd"]
+tags = ["DevSecOps", "Kubernetes", "Cloud Native", "SAST", "Security Automation", "CI/CD"]
 images = ["/images/shift-left-security/shift-left-security.png"]
 featuredImage = "/images/shift-left-security/shift-left-security.png"
 +++

@@ -3,7 +3,7 @@ title = "Elastic Kubernetes Service Cost Optimization: A Comprehensive Guide - P
 description = "Cost optimization is a crucial aspect of Kubernetes management. This blog series explores strategies for reducing expenses on both Kubernetes and AWS sides, starting with universally applicable Kubernetes tips."
 date = "2024-05-07"
 author = "Fatih Koç"
-tags = ["eks", "kubernetes", "aws", "cost-optimization", "monitoring"]
+tags = ["EKS", "Kubernetes", "AWS", "Cost Optimization", "Monitoring"]
 +++
 
 Elastic Kubernetes Service (EKS) stands out in the Kubernetes ecosystem for its powerful cloud-based solutions. However, many organizations struggle with managing costs effectively. This [two-part](https://fatihkoc.net/posts/eks-cost-optimization-2/) blog series dives deep into strategies for reducing expenses on both Kubernetes and AWS sides. We start with universally applicable Kubernetes tips, enriched with contextual understanding and real-world scenarios.

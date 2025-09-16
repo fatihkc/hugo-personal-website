@@ -3,7 +3,7 @@ title = "Cloud Resume Challenge"
 description = "End-to-end serverless portfolio website for Cloud Resume Challenge."
 date = "2022-08-22"
 author = "Fatih Koç"
-tags = ["aws", "serverless", "terraform", "hugo", "cloudfront"]
+tags = ["AWS", "Serverless", "Terraform", "Hugo", "CloudFront"]
 +++
 
 Hello everyone, I am Fatih. I am working in the cloud area for over two years. Currently working as a DevOps Engineer at FTech Labs, we're building a super app for crypto exchanges. Today our topic is [Cloud Resume Challenge](https://cloudresumechallenge.dev/).  
