@@ -29,3 +29,12 @@ resource "aws_route53_record" "www" {
     evaluate_target_health = true
   }
 }
+
+# Google Search Console verification CNAME record
+resource "aws_route53_record" "google_site_verification" {
+  zone_id = aws_route53_zone.primary.zone_id
+  name    = "grvgfffqmw7o.${var.domain_name}"
+  type    = "CNAME"
+  ttl     = 300
+  records = ["gv-cgwomuehjciwmu.dv.googlehosted.com"]
+}
