@@ -29,11 +29,9 @@ For broader context, see [**OWASP ASVS**](https://owasp.org/www-project-applicat
 
 Also see the [OWASP DevSecOps Guidelines](https://owasp.org/www-project-devsecops-guideline/latest/) for practical ways to align velocity with safety.
 
----
-
 ## Shift Left Security in practice (with code)
 
-Below are **plug and play snippets** that respect the inner loop. Start small—pick two—and expand.
+Below are **plug and play snippets** that respect the inner loop. Start small, pick two and expand.
 
 ### 1) Pre‑commit essentials: secrets + basic SAST
 
@@ -74,7 +72,7 @@ Optional: tighten Gitleaks with custom allow lists.
 
 ### 2) Fast PR checks + deeper nightly scans
 
-Pull requests should answer one question: Is this safe to merge right now? That’s it. Fast jobs for secrets, lightweight SAST, and basic IaC checks keep PRs flowing. Then at night, when no one’s waiting on feedback, run deep scans—full rule sets, dependency scans, and container/IaC checks. That way, developers aren’t stuck waiting 15 minutes just to land a comment fix.
+Pull requests should answer one question: Is this safe to merge right now? That’s it. Fast jobs for secrets, lightweight SAST, and basic IaC checks keep PRs flowing. Then at night, when no one’s waiting on feedback, run deep scans. Full rule sets, dependency scans, and container/IaC checks. That way, developers aren’t stuck waiting 15 minutes just to land a comment fix.
 
 ```yaml
 # .github/workflows/secure-pr.yml
@@ -230,12 +228,12 @@ Many Dockerfiles run as root and include unnecessary packages. Prefer a distrole
 * Distroless runtime → smaller image, fewer CVEs, faster pulls, lower registry storage.
 * `USER` non‑root → safer by default.
 * Multi‑stage build + prune dev deps → smaller runtime and better cache reuse (faster builds).
-* Note: native modules build faster on `node:20-slim` than Alpine; still use distroless for runtime. BuildKit cache mounts speed npm/yarn installs.
+* Note: native modules build faster on `node:22-slim` than Alpine; still use distroless for runtime. BuildKit cache mounts speed npm/yarn installs.
 
 ```dockerfile
 # Dockerfile
 # Build stage
-FROM node:22-alpine AS build
+FROM node:22-slim AS build
 WORKDIR /app
 COPY package*.json ./
 RUN npm ci
@@ -326,7 +324,7 @@ Then extend your OPA policy to require a valid attestation.
 
 ### 8) IaC guardrails: Terraform checks in PRs
 
-Cloud misconfigurations are the sneakiest bugs—they look harmless in code review, then suddenly you’ve got a public S3 bucket in prod. Running tfsec on the Terraform plan catches those before apply. It’s cheap insurance, and it makes reviewers more confident: “yep, this plan doesn’t open the blast doors.” Sure, you’ll have to tune a few noisy rules, but the net is positive.
+Cloud misconfigurations are the sneakiest bugs. They look harmless in code review, then suddenly you’ve got a public S3 bucket in prod. Running tfsec on the Terraform plan catches those before apply. It’s cheap insurance, and it makes reviewers more confident: “yep, this plan doesn’t open the blast doors.” Sure, you’ll have to tune a few noisy rules, but the net is positive.
 
 ```yaml
 # .github/workflows/tf-guardrails.yml
@@ -357,8 +355,6 @@ jobs:
           sarif_file: tfsec.sarif
 ```
 
----
-
 ## Common pitfalls (and fixes)
 
 * **False positive fatigue** → start with **high confidence** rules; add suppressions with context.
@@ -367,9 +363,7 @@ jobs:
 * **“Security says no” culture** → create **security champions** within dev teams.
 * **Late requirements** → add **threat modeling** to planning; codify standards in templates.
 
----
-
-## Tools & when to use them (quick table)
+## Tools & when to use them
 
 | Problem         | Fast inner loop                          | PR/CI guardrail                         | Scheduled/deep                                   |
 | --------------- | ---------------------------------------- | --------------------------------------- | ------------------------------------------------ |
@@ -395,8 +389,6 @@ Tune rules with suppressions and allowlists in-repo; require justification in PR
 
 **What if a tool blocks a release?**
 Use severity thresholds (e.g., fail on high/critical). Allow time bound waivers with an owner and due date; track them in issues and audit regularly.
-
----
 
 ## Conclusion
 
