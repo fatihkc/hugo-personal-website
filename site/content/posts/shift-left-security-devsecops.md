@@ -381,8 +381,8 @@ jobs:
 
 ## FAQ
 
-**What’s the difference between Shift-Left Security and DevSecOps?**
-Shift-Left is the practice (earlier checks), DevSecOps is the culture/process shift enabling it.
+**What’s the difference between Shift Left Security and DevSecOps?**
+Shift Left is the practice (earlier checks), DevSecOps is the culture/process shift enabling it.
 
 **Does Shift Left Security slow developers down?**
 Only if you push heavy checks into the inner loop. Keep fast checks local/PR; move heavy ones to nightly. Most teams recoup time via fewer hotfixes and less rework.
