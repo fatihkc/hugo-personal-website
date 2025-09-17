@@ -1,5 +1,6 @@
 .idea
-**/themes/
+**/themes/*
+!**/themes/hugo-coder/
 site/public/
 site/resources/
 *.lock
