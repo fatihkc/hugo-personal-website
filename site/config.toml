@@ -8,6 +8,7 @@ pygmentsStyle = "github-dark"
 pygmentsCodeFences = true
 pygmentsCodeFencesGuessSyntax = true
 enableEmoji = true
+enableRobotsTXT = true
 
 [params.googleTagManager]
 #id =
