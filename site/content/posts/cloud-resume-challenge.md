@@ -21,7 +21,7 @@ You can check the steps on the [website](https://cloudresumechallenge.dev/docs/t
 
 ## Technologies
 
-![Diagram](/images/cloud-resume-challenge/diagram.png)
+![Diagram](/images/cloud-resume-challenge/diagram.webp)
 
 You can check my GitHub [repository](https://github.com/fatihkc) for this challenge. I am not gonna give the details about technical things. You can check the repo and read the comments. I skipped the certification part. I will explain it later.
 

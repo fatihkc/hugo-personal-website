@@ -4,8 +4,8 @@ description = "Shift Left Security practices developers actually like — with c
 date = "2025-09-16"
 author = "Fatih Koç"
 tags = ["DevSecOps", "Kubernetes", "Cloud Native", "SAST", "Security Automation", "CI/CD"]
-images = ["/images/shift-left-security/shift-left-security.png"]
-featuredImage = "/images/shift-left-security/shift-left-security.png"
+images = ["/images/shift-left-security/shift-left-security.webp"]
+featuredImage = "/images/shift-left-security/shift-left-security.webp"
 +++
 
 Security is often treated as a late stage gate. In a cloud native world, that's a tax on velocity. **Shift Left Security** flips the script. We integrate security earlier. During design, coding, and CI—so developers get fast, actionable feedback without leaving their flow.

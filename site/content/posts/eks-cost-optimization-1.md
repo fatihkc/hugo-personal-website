@@ -26,7 +26,7 @@ While some prefer the ELK stack for logging, its resource intensity for simple s
 
 Enterprise APM solutions like Dynatrace, Datadog, New Relic, Splunk, etc. can be used for monitoring solutions, but since we are discussing cost management, they are not necessary for small clusters.
 
-![kube-prometheus-stack dashboard](/images/eks-cost-opt-1/kube-prometheus-stack-dashboard.png)
+![kube-prometheus-stack dashboard](/images/eks-cost-opt-1/kube-prometheus-stack-dashboard.webp)
 
 ## Resource Management: Tuning for Efficiency
 
@@ -100,7 +100,7 @@ Continuous monitoring and making simple improvements daily is the most efficient
 
 ## Monitoring Cost Optimization: Tools
 
-![eks-node-viewer](/images/eks-cost-opt-1/eks-node-viewer.png)
+![eks-node-viewer](/images/eks-cost-opt-1/eks-node-viewer.webp)
 
 eWe have discussed most of the tips and tricks about Kubernetes cost management. Still, we want to be sure about everything. Cost monitoring tools like OpenCost and Kubecost can be used. For understanding cluster-wide resource usage, [eks-node-viewer](https://github.com/awslabs/eks-node-viewer) is a really useful tool.
 

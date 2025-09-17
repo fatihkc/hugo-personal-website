@@ -18,7 +18,7 @@ AWS charges for EKS based on the control plane usage and EC2 instances or Fargat
 
 For predictable workloads, consider purchasing Reserved Instances or Savings Plans. These options provide significant discounts compared to on-demand pricing in exchange for a commitment to a certain level of usage.
 
-![AWS Cost Calculator for EC2](/images/eks-cost-opt-2/aws-cost-calculator-for-ec2.png)
+![AWS Cost Calculator for EC2](/images/eks-cost-opt-2/aws-cost-calculator-for-ec2.webp)
 
 
 ## Optimizing EC2 Instances for Worker Nodes
@@ -47,7 +47,7 @@ NAT Gateways can be really expensive, especially if you have a multi-AZ architec
 
 VPC to VPC communication is expensive. You can use public internet, but it comes with a price. Use VPC Peering(2 VPC) and Transit Gateway(+3 VPC) as much as possible. VPC Peering is a great choice for the same AZ because there are no network charges.
 
-![AWS VPC Network](/images/eks-cost-opt-2/aws-vpc-network.png)
+![AWS VPC Network](/images/eks-cost-opt-2/aws-vpc-network.webp)
 
 
 ## Storage Optimization

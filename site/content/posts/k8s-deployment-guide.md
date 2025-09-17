@@ -32,7 +32,7 @@ git clone https://github.com/fatihkc/ultimate-k8s-deployment-guide.git
 
 ## Diagram
 
-![Diagram](/images/k8s-deployment-guide/diagram.png)
+![Diagram](/images/k8s-deployment-guide/diagram.webp)
 
 ## Kind
 
@@ -59,7 +59,7 @@ All you need to focus on is the version and appVersion field. Why do we have two
 
 ## Templates
 
-![Templates](/images/k8s-deployment-guide/templates.png)
+![Templates](/images/k8s-deployment-guide/templates.webp)
 
 Templates are your YAML files that use to create Kubernetes resources. The important thing is to divide them by their resource type and name them resource-type.yaml. Let’s create a simple deployment and check what they are using for. 
 
