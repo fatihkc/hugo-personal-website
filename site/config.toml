@@ -3,6 +3,7 @@ title = "Fatih Koç"
 theme = "hugo-coder"
 languageCode = "en"
 defaultContentLanguage = "en"
+canonifyURLs = true
 pagerSize = 20
 pygmentsStyle = "github-dark"
 pygmentsCodeFences = true

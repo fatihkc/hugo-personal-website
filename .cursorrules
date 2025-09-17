@@ -20,6 +20,7 @@ _(For file/path exclusions see `.cursorignore`)_
 - Prefer built-in shortcodes over raw HTML. Use code blocks with language hints.
 - Add accessible **alt** text for images; keep image widths reasonable and use WebP when possible.
 - Do not suggest to add robots.txt. It is already under site/static/robots.txt.
+- Do not suggest to add sitemap.xml. It is already exists.
 
 ## Terraform Rules (terraform/)
 - Before suggesting changes, run (or propose running):  
