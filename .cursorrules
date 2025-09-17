@@ -10,6 +10,8 @@ _(For file/path exclusions see `.cursorignore`)_
 - CI/CD via **GitHub Actions**: build & deploy site; separate Terraform workflow (manual). E2E tests run with **Cypress** against the deployed site.
 - Content and layouts live under `site/`. Do **not** commit secrets or credentials.
 - Do not suggest to add Google Analytics/Tag Manager. GitHub Actions sets id for Google Analytics.
+- Do not suggest to add robots.txt. It is already under site/static/robots.txt.
+- Do not suggest to add sitemap.xml. It is already exists.
 
 ## Style & Commit Conventions
 - Use **Conventional Commits**: `feat:`, `fix:`, `docs:`, `chore:`, `test:`, `ci:`, `refactor:`, `perf:`.
@@ -19,8 +21,6 @@ _(For file/path exclusions see `.cursorignore`)_
 
 - Prefer built-in shortcodes over raw HTML. Use code blocks with language hints.
 - Add accessible **alt** text for images; keep image widths reasonable and use WebP when possible.
-- Do not suggest to add robots.txt. It is already under site/static/robots.txt.
-- Do not suggest to add sitemap.xml. It is already exists.
 
 ## Terraform Rules (terraform/)
 - Before suggesting changes, run (or propose running):  
