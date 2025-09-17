@@ -28,7 +28,7 @@ rtl = false
 colorScheme = "auto"
 hideColorSchemeToggle = false
 maxSeeAlsoItems = 5
-customCSS = []
+customCSS = ["css/custom.css"]
 customSCSS = []
 customJS = []
 
