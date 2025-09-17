@@ -8,5 +8,3 @@ site/resources/
 .terraform.*
 .vscode
 node_modules
-!site/themes/
-!site/themes/hugo-coder/
