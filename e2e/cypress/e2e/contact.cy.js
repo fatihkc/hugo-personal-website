@@ -7,5 +7,4 @@ describe('Contact Page', () => {
     cy.url().should('include', '/contact/')
     cy.get('h1').should('contain', 'Contact')
   })
-
 })
