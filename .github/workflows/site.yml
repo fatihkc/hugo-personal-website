@@ -12,7 +12,6 @@ on:
       - site/**
       - .github/workflows/site.yml
       - e2e
-
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -24,7 +23,6 @@ jobs:
     defaults:
       run:
         working-directory: site # Run all commands in the site directory
-
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -32,20 +30,16 @@ jobs:
         with:
           submodules: true # Fetch Hugo themes
           fetch-depth: 0 
-
       - name: Google Analytics
         run: sed -i -e "s/#id =/id= '${{ secrets.GOOGLEANALYTICS }}'/g" config.toml
-
       # Runs a single command using the runners shell
       - name: Setup Hugo
         uses:  peaceiris/actions-hugo@v3
         with:
           hugo-version: '0.136.2'
           extended: true
-
       - name: Build
         run: hugo --minify # Build the website
-
       - name: Deploy to AWS S3
         run: hugo deploy --force --invalidateCDN
         env:
@@ -55,11 +49,8 @@ jobs:
   tests:
     needs: build-deploy # Wait for the build-deploy job to finish
     runs-on: ubuntu-latest
-
     steps:
-
       - uses: actions/checkout@v4
-
       - name: Cypress run
         uses:  cypress-io/github-action@v6
         with:
