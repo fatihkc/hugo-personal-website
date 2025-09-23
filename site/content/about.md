@@ -6,6 +6,8 @@ date = "2019-02-28"
 author = "Fatih Koc"
 images = ["/images/fatih-koc.jpg"]
 keywords = [
+  "Top Rated DevOps Engineer",
+  "Upwork Top Rated",
   "DevOps Engineer",
   "Site Reliability Engineering",
   "SRE",
@@ -72,6 +74,6 @@ Have a project or platform challenge? I’d love to help.
 - Contact me: [/contact/](/contact/)
 - LinkedIn: https://www.linkedin.com/in/fatihhkoc/
 - GitHub: https://github.com/fatihkc/
-- Upwork: https://www.upwork.com/freelancers/fatihkoc
+- Upwork: https://www.upwork.com/freelancers/fatihkoc *(Top Rated)*
 
 ![Fatih Koç resume](/images/fatih-koc-resume.jpeg)
