@@ -1,8 +1,9 @@
-
-
-
 # Cursor Project Rules — hugo-personal-website
 _(For file/path exclusions see `.cursorignore`)_
+
+## AI Assistant Configuration
+- Use Context7 for Hugo, Terraform, AWS, and Cypress documentation to ensure up-to-date information
+- Automatically include relevant documentation when working with these technologies
 
 ## Project Context (facts — do not invent)
 - Static site built with **Hugo** using **hugo-coder** theme. Hosted on **AWS** via S3 (static hosting), **CloudFront** (CDN), **Route53** (DNS), **ACM** (TLS).
