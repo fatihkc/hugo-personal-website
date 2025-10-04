@@ -4,6 +4,7 @@ _(For file/path exclusions see `.cursorignore`)_
 ## AI Assistant Configuration
 - Use Context7 for Hugo, Terraform, AWS, and Cypress documentation to ensure up-to-date information
 - Automatically include relevant documentation when working with these technologies
+- Check ../personal-gpts/writer.txt while checking blog posts.
 
 ## Project Context (facts — do not invent)
 - Static site built with **Hugo** using **hugo-coder** theme. Hosted on **AWS** via S3 (static hosting), **CloudFront** (CDN), **Route53** (DNS), **ACM** (TLS).
@@ -22,6 +23,7 @@ _(For file/path exclusions see `.cursorignore`)_
 
 - Prefer built-in shortcodes over raw HTML. Use code blocks with language hints.
 - Add accessible **alt** text for images; keep image widths reasonable and use WebP when possible.
+- Featured images (hero images) should be **1200x630** (WebP format) for optimal social media sharing (Open Graph standard).
 
 ## Terraform Rules (terraform/)
 - Before suggesting changes, run (or propose running):  
