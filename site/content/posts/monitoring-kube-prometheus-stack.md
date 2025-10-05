@@ -1,7 +1,7 @@
 +++
 title = "The Observability Gap with kube-prometheus-stack in Kubernetes"
 description = "Kubernetes observability goes beyond Prometheus Grafana monitoring. Learn why kube-prometheus-stack falls short and how to bridge the gap."
-date = "2025-10-04"
+date = "2025-10-05"
 author = "Fatih Koç"
 tags = ["Kubernetes", "Observability", "Prometheus", "Grafana", "Monitoring", "DevOps"]
 images = ["/images/monitoring-kube-prometheus-stack/observability-gap-kubernetes.webp"]
