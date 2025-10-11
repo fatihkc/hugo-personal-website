@@ -31,6 +31,9 @@
       {{ with .Site.Author.email }}<author>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}</author>{{end}}
       <guid>{{ .Permalink }}</guid>
       <description>{{ with .Description | html }}{{ . }}{{ else }}{{ .Summary | html }}{{ end -}}</description>
+      {{- with .Params.featuredImage -}}
+      <enclosure url="{{ (printf "%s%s" (strings.TrimSuffix "/" $.Site.BaseURL) .) }}" type="image/webp" />
+      {{- end -}}
       <content:encoded>{{ (printf "<![CDATA[%s]]>" (.Content | replaceRE `src="(/images/[^"]+)"` (printf `src="%s%s"` (strings.TrimSuffix "/" $.Site.BaseURL) "$1") | replaceRE `\*\*Link to heading\*\*` "" | replaceRE `<span class="sr-only">Link to heading</span>` "" | replaceRE `aria-hidden="true" title="Link to heading"` `aria-hidden="true"`)) | safeHTML }}</content:encoded>
     </item>
     {{ end }}
