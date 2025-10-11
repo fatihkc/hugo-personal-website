@@ -31,7 +31,7 @@
       {{ with .Site.Author.email }}<author>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}</author>{{end}}
       <guid>{{ .Permalink }}</guid>
       <description>{{ with .Description | html }}{{ . }}{{ else }}{{ .Summary | html }}{{ end -}}</description>
-      <content:encoded>{{ (printf "<![CDATA[%s]]>" (.Content | replaceRE `\*\*Link to heading\*\*` "" | replaceRE `<span class="sr-only">Link to heading</span>` "" | replaceRE `aria-hidden="true" title="Link to heading"` `aria-hidden="true"`)) | safeHTML }}</content:encoded>
+      <content:encoded>{{ (printf "<![CDATA[%s]]>" (.Content | replaceRE `src="(/images/[^"]+)"` (printf `src="%s%s"` (strings.TrimSuffix "/" $.Site.BaseURL) "$1") | replaceRE `\*\*Link to heading\*\*` "" | replaceRE `<span class="sr-only">Link to heading</span>` "" | replaceRE `aria-hidden="true" title="Link to heading"` `aria-hidden="true"`)) | safeHTML }}</content:encoded>
     </item>
     {{ end }}
   </channel>
