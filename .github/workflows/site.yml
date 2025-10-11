@@ -45,6 +45,9 @@ jobs:
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      - name: Submit URLs to IndexNow
+        run: bash scripts/submit-indexnow.sh
+        working-directory: ${{ github.workspace }}
 
   tests:
     needs: build-deploy # Wait for the build-deploy job to finish
