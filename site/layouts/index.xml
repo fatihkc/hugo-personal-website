@@ -30,7 +30,12 @@
       <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
       {{ with .Site.Author.email }}<author>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}</author>{{end}}
       <guid>{{ .Permalink }}</guid>
-      <description>{{ with .Description | html }}{{ . }}{{ else }}{{ .Summary | html }}{{ end -}}</description>
+      <description>
+        {{- if .Params.featuredImage -}}
+        &lt;img src=&quot;{{ printf "%s%s" (strings.TrimSuffix "/" $.Site.BaseURL) .Params.featuredImage }}&quot; alt=&quot;{{ .Title }}&quot; /&gt;&lt;br/&gt;&lt;br/&gt;
+        {{- end -}}
+        {{- with .Description | html }}{{ . }}{{ else }}{{ .Summary | html }}{{ end -}}
+      </description>
       {{- with .Params.featuredImage -}}
       <enclosure url="{{ (printf "%s%s" (strings.TrimSuffix "/" $.Site.BaseURL) .) }}" length="100000" type="image/webp" />
       {{- end -}}
