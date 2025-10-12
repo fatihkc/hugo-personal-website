@@ -280,5 +280,4 @@ The monitoring foundation you build today shapes how quickly you can respond to 
 
 In the next part of this series, I will show how to deploy OpenTelemetry in Kubernetes for centralized observability. That is where the real transformation begins.
 
-<!-- **Read next**: [OpenTelemetry in Kubernetes for centralized observability](/posts/opentelemetry-kubernetes-centralized-observability).
--->
+**Read next**: [OpenTelemetry in Kubernetes for centralized observability](/posts/opentelemetry-kubernetes-pipeline).
