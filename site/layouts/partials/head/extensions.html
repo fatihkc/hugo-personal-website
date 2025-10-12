@@ -16,7 +16,7 @@
       "image" (absURL .Site.Params.avatarURL)
       "sameAs" $sameAs
   -}}
-  <script type="application/ld+json">{{ $person | jsonify }}</script>
+  <script type="application/ld+json">{{ $person | jsonify | safeJS }}</script>
 
   {{- /* WebSite */ -}}
   {{- $website := dict
@@ -26,7 +26,7 @@
       "url" .Site.BaseURL
       "publisher" (dict "@type" "Person" "name" .Site.Params.author)
   -}}
-  <script type="application/ld+json">{{ $website | jsonify }}</script>
+  <script type="application/ld+json">{{ $website | jsonify | safeJS }}</script>
 
 {{- else if eq .Section "posts" -}}
   {{- /* Blog posts */ -}}
@@ -47,7 +47,7 @@
       "author" (dict "@type" "Person" "name" .Site.Params.author)
       "publisher" (dict "@type" "Person" "name" .Site.Params.author "logo" (dict "@type" "ImageObject" "url" $publisherLogo))
   -}}
-  <script type="application/ld+json">{{ $article | jsonify }}</script>
+  <script type="application/ld+json">{{ $article | jsonify | safeJS }}</script>
 
   {{- /* Breadcrumbs */ -}}
   {{- $posts := .Site.GetPage "section" "posts" -}}
@@ -65,7 +65,7 @@
       "@type" "BreadcrumbList"
       "itemListElement" $crumbs
   -}}
-  <script type="application/ld+json">{{ $breadcrumb | jsonify }}</script>
+  <script type="application/ld+json">{{ $breadcrumb | jsonify | safeJS }}</script>
 
 {{- else -}}
   {{- /* Generic pages */ -}}
@@ -76,7 +76,7 @@
       "url" .Permalink
       "description" ((.Description | default .Summary) | plainify)
   -}}
-  <script type="application/ld+json">{{ $page | jsonify }}</script>
+  <script type="application/ld+json">{{ $page | jsonify | safeJS }}</script>
 {{- end -}}
 
 
