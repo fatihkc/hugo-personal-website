@@ -1,0 +1,82 @@
+{{- /* JSON-LD for schema.org. Injected invisibly for crawlers. */ -}}
+
+{{- /* Build sameAs list from social links */ -}}
+{{- $sameAs := slice -}}
+{{- range .Site.Params.social -}}
+  {{- with .url -}}{{- $sameAs = $sameAs | append . -}}{{- end -}}
+{{- end -}}
+
+{{- if .IsHome -}}
+  {{- /* Person */ -}}
+  {{- $person := dict
+      "@context" "https://schema.org"
+      "@type" "Person"
+      "name" .Site.Params.author
+      "url" .Site.BaseURL
+      "image" (absURL .Site.Params.avatarURL)
+      "sameAs" $sameAs
+  -}}
+  <script type="application/ld+json">{{ $person | jsonify }}</script>
+
+  {{- /* WebSite */ -}}
+  {{- $website := dict
+      "@context" "https://schema.org"
+      "@type" "WebSite"
+      "name" .Site.Title
+      "url" .Site.BaseURL
+      "publisher" (dict "@type" "Person" "name" .Site.Params.author)
+  -}}
+  <script type="application/ld+json">{{ $website | jsonify }}</script>
+
+{{- else if eq .Section "posts" -}}
+  {{- /* Blog posts */ -}}
+  {{- $img := "" -}}
+  {{- with .Params.featuredImage -}}{{ $img = (absURL .) -}}{{- end -}}
+  {{- $publisherLogo := "" -}}
+  {{- with .Site.Params.faviconSVG -}}{{ $publisherLogo = (absURL .) -}}{{- end -}}
+
+  {{- $article := dict
+      "@context" "https://schema.org"
+      "@type" "BlogPosting"
+      "mainEntityOfPage" (dict "@type" "WebPage" "@id" .Permalink)
+      "headline" .Title
+      "description" ((.Description | default .Summary) | plainify)
+      "image" $img
+      "datePublished" (.Date.Format "2006-01-02T15:04:05Z07:00")
+      "dateModified" (.Lastmod.Format "2006-01-02T15:04:05Z07:00")
+      "author" (dict "@type" "Person" "name" .Site.Params.author)
+      "publisher" (dict "@type" "Person" "name" .Site.Params.author "logo" (dict "@type" "ImageObject" "url" $publisherLogo))
+  -}}
+  <script type="application/ld+json">{{ $article | jsonify }}</script>
+
+  {{- /* Breadcrumbs */ -}}
+  {{- $posts := .Site.GetPage "section" "posts" -}}
+  {{- $crumbs := slice
+      (dict "@type" "ListItem" "position" 1 "name" .Site.Title "item" .Site.BaseURL)
+  -}}
+  {{- if $posts -}}
+    {{- $crumbs = $crumbs | append (dict "@type" "ListItem" "position" 2 "name" ($posts.Title | default "Posts") "item" $posts.Permalink) -}}
+    {{- $crumbs = $crumbs | append (dict "@type" "ListItem" "position" 3 "name" .Title "item" .Permalink) -}}
+  {{- else -}}
+    {{- $crumbs = $crumbs | append (dict "@type" "ListItem" "position" 2 "name" .Title "item" .Permalink) -}}
+  {{- end -}}
+  {{- $breadcrumb := dict
+      "@context" "https://schema.org"
+      "@type" "BreadcrumbList"
+      "itemListElement" $crumbs
+  -}}
+  <script type="application/ld+json">{{ $breadcrumb | jsonify }}</script>
+
+{{- else -}}
+  {{- /* Generic pages */ -}}
+  {{- $page := dict
+      "@context" "https://schema.org"
+      "@type" "WebPage"
+      "name" .Title
+      "url" .Permalink
+      "description" ((.Description | default .Summary) | plainify)
+  -}}
+  <script type="application/ld+json">{{ $page | jsonify }}</script>
+{{- end -}}
+
+
