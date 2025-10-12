@@ -35,18 +35,30 @@
   {{- $publisherLogo := "" -}}
   {{- with .Site.Params.faviconSVG -}}{{ $publisherLogo = (absURL .) -}}{{- end -}}
 
-  {{- $article := dict
+  {{- /* Build author with url and sameAs */ -}}
+  {{- $author := dict
+      "@type" "Person"
+      "name" .Site.Params.author
+      "url" .Site.BaseURL
+      "sameAs" $sameAs
+  -}}
+
+  {{- $articleBase := dict
       "@context" "https://schema.org"
       "@type" "BlogPosting"
       "mainEntityOfPage" (dict "@type" "WebPage" "@id" .Permalink)
       "headline" .Title
       "description" ((.Description | default .Summary) | plainify)
-      "image" $img
       "datePublished" (.Date.Format "2006-01-02T15:04:05Z07:00")
       "dateModified" (.Lastmod.Format "2006-01-02T15:04:05Z07:00")
-      "author" (dict "@type" "Person" "name" .Site.Params.author)
+      "author" $author
       "publisher" (dict "@type" "Person" "name" .Site.Params.author "logo" (dict "@type" "ImageObject" "url" $publisherLogo))
   -}}
+  {{- $article := $articleBase -}}
+  {{- if $img -}}
+    {{- /* Google recommends image array */ -}}
+    {{- $article = merge $articleBase (dict "image" (slice $img)) -}}
+  {{- end -}}
   <script type="application/ld+json">{{ $article | jsonify | safeJS }}</script>
 
   {{- /* Breadcrumbs */ -}}
