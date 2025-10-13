@@ -4,10 +4,27 @@ set -e
 # IndexNow submission script for Bing Webmaster Tools
 # Automatically submits all URLs from sitemap to IndexNow API
 
-INDEXNOW_KEY="649f6f9e3f9944c2bbceaad28480b943"
+INDEXNOW_KEY="9968e047f38847398e3c05323efbdd7a"
 SITE_URL="https://fatihkoc.net"
 SITEMAP_URL="${SITE_URL}/sitemap.xml"
 INDEXNOW_ENDPOINT="https://api.indexnow.org/indexnow"
+
+echo "🔐 Verifying IndexNow key at ${SITE_URL}/${INDEXNOW_KEY}.txt..."
+
+# Ensure the verification key is live and matches before submitting (avoid locale issues)
+KEY_URL="${SITE_URL}/${INDEXNOW_KEY}.txt"
+KEY_HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" "$KEY_URL" || true)
+KEY_BODY=$(curl -sL "$KEY_URL" || true)
+
+if [ "$KEY_HTTP_CODE" != "200" ] || [ "$KEY_BODY" != "$INDEXNOW_KEY" ]; then
+    echo "❌ Key verification failed. Expected ${INDEXNOW_KEY} at ${KEY_URL}"
+    echo "   Got HTTP ${KEY_HTTP_CODE} with body: '${KEY_BODY}'"
+    echo "   Deploy the new key file first, then rerun this script."
+    echo "   Example commands:"
+    echo "     hugo --source site --minify"
+    echo "     hugo --source site deploy"
+    exit 1
+fi
 
 echo "🔍 Fetching sitemap from ${SITEMAP_URL}..."
 
