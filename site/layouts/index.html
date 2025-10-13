@@ -1,0 +1,7 @@
+{{ define "title" }}
+  {{ with .Site.Params.homeTitle }}{{ . }}{{ else }}{{ .Site.Title }}{{ end }}
+{{ end }}
+
+{{ define "content" }}
+  {{ partial "home.html" . }}
+{{ end }}
