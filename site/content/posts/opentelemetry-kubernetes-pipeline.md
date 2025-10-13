@@ -69,6 +69,20 @@ kubectl -n opentelemetry-operator get pods
 
 The `manager.replicas=2` ensures high availability. Once installed, you define Collectors as custom resources and the Operator provisions everything else.
 
+### Alternative: install via opentelemetry-kube-stack Helm chart
+
+If you prefer a single Helm chart that bundles common components, you can use the `opentelemetry-kube-stack` chart. It provides a quicker bootstrap for cluster-wide telemetry and is a good starting point before you split configs into dedicated Operator-managed Collectors for more control.
+
+```bash
+helm repo add open-telemetry https://open-telemetry.github.io/opentelemetry-helm-charts
+helm repo update
+helm install otel-kube-stack open-telemetry/opentelemetry-kube-stack \
+  --namespace observability \
+  --create-namespace
+```
+
+See the chart for options and structure: [opentelemetry-kube-stack](https://github.com/open-telemetry/opentelemetry-helm-charts/tree/main/charts/opentelemetry-kube-stack)
+
 ## OpenTelemetry Gateway Collector configuration
 
 The gateway receives OTLP (OpenTelemetry Protocol) signals, the standard wire protocol that carries metrics, logs, and traces over gRPC (port 4317) or HTTP (port 4318). It enriches them with Kubernetes metadata, applies intelligent sampling, and exports to backends. Here's the key piece, the k8sattributes processor:
