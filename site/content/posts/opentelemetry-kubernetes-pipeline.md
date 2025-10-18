@@ -379,4 +379,4 @@ Deploy the gateway and agent, instrument one service, and test cross-navigation 
 
 ## Read next
 
-Now that you have a unified observability pipeline for metrics, logs, and traces, extend it to security signals. [Security Observability in Kubernetes Goes Beyond Logs](/posts/k8s-security-observability/) shows you how to add Kubernetes audit logs, Falco runtime detection, and network flow visibility to your OpenTelemetry pipeline with full correlation. You'll be able to trace security events back to the exact request that triggered them.
+Now that you have a unified observability pipeline for metrics, logs, and traces, extend it to security signals. [Security Observability in Kubernetes Goes Beyond Logs](/posts/kubernetes-security-observability/) shows you how to add Kubernetes audit logs, Falco runtime detection, and network flow visibility to your OpenTelemetry pipeline with full correlation. You'll be able to trace security events back to the exact request that triggered them.

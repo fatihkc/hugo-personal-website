@@ -4,8 +4,8 @@ description = "Build security observability in Kubernetes with audit logs, Falco
 date = "2025-10-19T00:00:00+03:00"
 author = "Fatih Koç"
 tags = ["Kubernetes", "Security", "Observability", "DevSecOps"]
-images = ["/images/k8s-security-observability/k8s-security-observability.webp"]
-featuredImage = "/images/k8s-security-observability/k8s-security-observability.webp"
+images = ["/images/kubernetes-security-observability/kubernetes-security-observability.webp"]
+featuredImage = "/images/kubernetes-security-observability/kubernetes-security-observability.webp"
 +++
 
 Most Kubernetes security tools tell you about vulnerabilities before deployment. Many can detect what's happening during an attack, but they work in isolation without the correlation needed to piece together the full story.
