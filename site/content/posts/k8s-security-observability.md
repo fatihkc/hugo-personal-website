@@ -1,7 +1,7 @@
 +++
 title = "Security Observability in Kubernetes Goes Beyond Logs"
 description = "Build security observability in Kubernetes with audit logs, Falco runtime detection, and correlated security telemetry for faster incident response."
-date = "2025-10-18"
+date = "2025-10-19"
 author = "Fatih Koç"
 tags = ["Kubernetes", "Security", "Observability", "DevSecOps"]
 images = ["/images/k8s-security-observability/k8s-security-observability.webp"]
