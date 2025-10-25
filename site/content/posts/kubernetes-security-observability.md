@@ -466,3 +466,5 @@ This post covered getting security signals into your observability pipeline and 
 The open-source approach gives you full control and flexibility, but requires ongoing maintenance. Enterprise platforms bundle these capabilities with managed infrastructure, pre-built dashboards, and support.
 
 If you're looking at commercial options, consider Kubernetes-native platforms (Sysdig Secure, Aqua Security, Prisma Cloud), cloud provider tools (AWS GuardDuty, Google Cloud Security Command Center, Azure Defender), or SIEM platforms with Kubernetes integrations (Elastic Security, Datadog Security Monitoring, Sumo Logic). Many teams use a mix: cloud provider tools for basic monitoring, open-source for custom correlation and deep investigation, and SIEM when compliance requires centralized reporting.
+
+**Read next:** [eBPF Observability and Continuous Profiling with Parca](/posts/ebpf-parca-observability/) - Extend your observability stack with continuous profiling to find CPU hotspots and optimize performance without code changes.
