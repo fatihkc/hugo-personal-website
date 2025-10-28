@@ -1,5 +1,6 @@
 +++
 title = "About"
+layout = "about"
 seoTitle = "About Fatih Koç — DevOps Engineer"
 description = "DevOps Engineer building reliable, secure, cost‑effective cloud platforms on AWS, Azure, and GCP with Kubernetes, Terraform, and modern CI/CD."
 date = "2019-02-28"
