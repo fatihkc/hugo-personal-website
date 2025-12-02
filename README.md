@@ -89,7 +89,3 @@ The terraform workflow is defined in `.github/workflows/terraform.yml`. The work
 ## Blog post for Cloud Resume Challenge
 
 - [Cloud Resume Challenge](https://fatihkoc.net/posts/cloud-resume-challenge/)
-
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
