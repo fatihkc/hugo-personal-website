@@ -62,6 +62,8 @@ I build resilient, secure, and cost‑effective cloud platforms on AWS, Azure, a
 - EKS cost optimization (Part 2): [/posts/eks-cost-optimization-2/](/posts/eks-cost-optimization-2/)
 - Cloud Resume Challenge write‑up: [/posts/cloud-resume-challenge/](/posts/cloud-resume-challenge/)
 
+I also run [DevOps Start](https://devopsstart.com), a DevOps and cloud resource site I publish to regularly.
+
 ## How I work
 
 - Measure, then automate: instrument first, then remove toil with pipelines and platform tooling
