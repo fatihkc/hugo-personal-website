@@ -18,7 +18,7 @@ module "cdn" {
   default_root_object = "index.html"
   enabled             = true
   is_ipv6_enabled     = true
-  price_class         = "PriceClass_All"
+  price_class         = "PriceClass_200"
   retain_on_delete    = false
   wait_for_deployment = false
 
