@@ -10,19 +10,6 @@ module "s3_bucket" {
   versioning = {
     enabled = true
   }
-
-  website = {
-    index_document = "index.html"
-    error_document = "404.html"
-    routing_rules = [{
-      condition = {
-        key_prefix_equals = "/"
-      },
-      redirect = {
-        replace_key_prefix_with = "index.html"
-      }
-    }]
-  }
 }
 
 # S3 bucket policy to allow only CloudFront OAI access
