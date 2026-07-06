@@ -1,10 +1,10 @@
 describe('Homepage', () => {
   beforeEach(() => {
-    cy.visit('https://fatihkoc.net')
+    cy.visit('/')
   })
 
   it('should load the homepage successfully', () => {
-    cy.url().should('eq', 'https://fatihkoc.net/')
+    cy.url().should('eq', Cypress.config('baseUrl') + '/')
     cy.get('title').should('contain', 'Fatih Koç')
     cy.get('h1').should('be.visible')
   })

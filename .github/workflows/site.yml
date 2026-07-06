@@ -17,7 +17,32 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+  test-local:
+    # Run the Cypress suite against a local hugo server BEFORE deploying,
+    # so a broken build never reaches production.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true # Fetch Hugo themes
+          fetch-depth: 0
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.136.2'
+          extended: true
+      - name: Cypress run (local server)
+        uses: cypress-io/github-action@v6
+        with:
+          working-directory: e2e
+          start: hugo server --source ../site --port 1313
+          wait-on: 'http://localhost:1313'
+          wait-on-timeout: 180
+        env:
+          CYPRESS_BASE_URL: http://localhost:1313
+
   build-deploy:
+    needs: test-local # Deploy only if the local test suite passes
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     defaults:

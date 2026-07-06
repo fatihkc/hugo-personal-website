@@ -1,6 +1,6 @@
 describe('Blog Page', () => {
   beforeEach(() => {
-    cy.visit('https://fatihkoc.net/posts/')
+    cy.visit('/posts/')
   })
 
   it('should load and display blog posts', () => {
