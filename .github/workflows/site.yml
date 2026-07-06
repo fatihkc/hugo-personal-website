@@ -26,7 +26,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           submodules: true # Fetch Hugo themes
           fetch-depth: 0 
@@ -56,8 +56,8 @@ jobs:
     needs: build-deploy # Wait for the build-deploy job to finish
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Cypress run
-        uses:  cypress-io/github-action@v6
+        uses:  cypress-io/github-action@v7
         with:
           working-directory: e2e
