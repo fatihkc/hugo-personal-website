@@ -32,12 +32,15 @@ jobs:
           fetch-depth: 0 
       - name: Google Analytics
         run: sed -i -e "s/#id =/id= '${{ secrets.GOOGLEANALYTICS }}'/g" config.toml
-      # Runs a single command using the runners shell
+      # Since Hugo 0.139, 'hugo deploy' requires the extended_withdeploy
+      # build variant, which peaceiris/actions-hugo cannot install.
       - name: Setup Hugo
-        uses:  peaceiris/actions-hugo@v3
-        with:
-          hugo-version: '0.154.2'
-          extended: true
+        run: |
+          curl -sSL "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_withdeploy_${HUGO_VERSION}_linux-amd64.tar.gz" \
+            | sudo tar -xz -C /usr/local/bin hugo
+          hugo version
+        env:
+          HUGO_VERSION: '0.154.2'
       - name: Build
         run: hugo --minify # Build the website
       - name: Deploy to AWS S3
