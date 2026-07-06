@@ -1,6 +1,6 @@
 describe('About Page', () => {
   beforeEach(() => {
-    cy.visit('https://fatihkoc.net/about/')
+    cy.visit('/about/')
   })
 
   it('should load the about page successfully', () => {

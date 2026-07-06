@@ -1,6 +1,6 @@
 describe('Contact Page', () => {
   beforeEach(() => {
-    cy.visit('https://fatihkoc.net/contact/')
+    cy.visit('/contact/')
   })
 
   it('should load the contact page successfully', () => {
