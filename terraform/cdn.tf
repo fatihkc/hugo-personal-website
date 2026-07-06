@@ -7,7 +7,8 @@ module "cdn" {
     aws_cloudfront_function.redirect
   ]
 
-  source = "terraform-aws-modules/cloudfront/aws"
+  source  = "terraform-aws-modules/cloudfront/aws"
+  version = "~> 5.0" # v6 removed origin access identity (OAI) support; pin until OAC migration
 
   aliases = [
     "${var.domain_name}",
