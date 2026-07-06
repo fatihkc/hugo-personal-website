@@ -1,6 +1,7 @@
 module "s3_bucket" {
-  source = "terraform-aws-modules/s3-bucket/aws"
-  bucket = "fatihkocnet-hugo"
+  source  = "terraform-aws-modules/s3-bucket/aws"
+  version = "~> 5.0" # pin major to avoid surprise breaking changes on fresh init
+  bucket  = "fatihkocnet-hugo"
   # Block all public access for security
   block_public_acls       = true
   block_public_policy     = true
@@ -8,19 +9,6 @@ module "s3_bucket" {
   restrict_public_buckets = true
   versioning = {
     enabled = true
-  }
-
-  website = {
-    index_document = "index.html"
-    error_document = "404.html"
-    routing_rules = [{
-      condition = {
-        key_prefix_equals = "/"
-      },
-      redirect = {
-        replace_key_prefix_with = "index.html"
-      }
-    }]
   }
 }
 

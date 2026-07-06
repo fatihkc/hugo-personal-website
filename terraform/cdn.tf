@@ -7,7 +7,8 @@ module "cdn" {
     aws_cloudfront_function.redirect
   ]
 
-  source = "terraform-aws-modules/cloudfront/aws"
+  source  = "terraform-aws-modules/cloudfront/aws"
+  version = "~> 5.0" # v6 removed origin access identity (OAI) support; pin until OAC migration
 
   aliases = [
     "${var.domain_name}",
@@ -18,7 +19,7 @@ module "cdn" {
   default_root_object = "index.html"
   enabled             = true
   is_ipv6_enabled     = true
-  price_class         = "PriceClass_All"
+  price_class         = "PriceClass_200"
   retain_on_delete    = false
   wait_for_deployment = false
 
@@ -73,7 +74,7 @@ module "cdn" {
 
 resource "aws_cloudfront_function" "redirect" {
   name    = "redirect"
-  runtime = "cloudfront-js-1.0"
+  runtime = "cloudfront-js-2.0"
   comment = "Redirects requests to index.html"
   publish = true
   code    = file("scripts/redirect.js")
