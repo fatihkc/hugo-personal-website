@@ -1,0 +1,18 @@
+{
+  "$comment": "Replaces the old .cursorignore. Claude Code has no ignore-file; it already respects .gitignore (site/public, site/resources, .terraform, node_modules, *.tfstate are ignored there). This file adds defensive read-denies for sensitive artifacts and pre-approves safe, read-only local commands.",
+  "permissions": {
+    "deny": [
+      "Read(./terraform/**/*.tfstate)",
+      "Read(./terraform/**/*.tfstate.*)",
+      "Read(./terraform/**/.terraform/**)"
+    ],
+    "allow": [
+      "Bash(hugo server:*)",
+      "Bash(terraform -chdir=terraform fmt:*)",
+      "Bash(terraform -chdir=terraform validate:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)"
+    ]
+  }
+}
