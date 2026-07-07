@@ -77,5 +77,6 @@ The Terraform workflow (`.github/workflows/terraform.yml`) is manual-only (`work
 ## Conventions
 
 - **Never commit directly to `main`** — every change, including docs, goes through a branch and a PR.
+- **Planning docs are temporary.** Design specs and implementation plans (e.g. `docs/superpowers/specs/`) are local working artifacts: keep them on the working branch while the work is in flight, delete them once that work ships, and never let them reach `main` or a publish commit.
 - **Conventional Commits** (`feat:`, `fix:`, `chore:`, `test:`, `ci:`, …), one PR per logical change.
 - Terraform or workflow changes: include what/why/rollback in the commit or PR body; run `fmt` and `validate` first; verify `terraform plan` is clean after applying. No hard-coded ARNs/IDs — use variables and data sources.
