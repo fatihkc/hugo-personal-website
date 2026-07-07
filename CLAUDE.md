@@ -58,6 +58,7 @@ The Terraform workflow (`.github/workflows/terraform.yml`) is manual-only (`work
 
 ## Content authoring (site/content/)
 
+- **New posts are drafted locally and never pushed until Fatih explicitly says to publish.** The repo is public, so anything pushed — branches, PRs, intermediate commits — is permanently visible on GitHub (even after squash-merge or branch deletion). Write the post on a local branch with `draft = true` in front-matter, preview with `hugo server --source site -D`, commit locally as often as needed. Only on Fatih's explicit "publish" instruction: remove `draft = true`, collapse the WIP commits into one clean commit (e.g. `git reset --soft main`, commit fresh), push, open a PR, and merge to `main` — merging deploys the post.
 - Blog posts are flat files: `site/content/posts/<slug>.md`. Front-matter is **TOML** (`+++`) with `title`, `description`, `date`, `author`, `tags` — the default archetype emits YAML, so match existing posts instead.
 - Post images live under `site/static/images/<slug>/`, referenced as `/images/<slug>/...`. Prefer WebP; hero/featured images are **1200×630 WebP** (Open Graph).
 - Optional writing-style reference at `../personal-gpts/writer.txt` (outside the repo) — consult when drafting blog prose if present.
