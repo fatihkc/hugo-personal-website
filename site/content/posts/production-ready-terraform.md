@@ -24,7 +24,7 @@ This post covers the testing pyramid for infrastructure as code, walks through t
 
 All code examples are available in the [terraform-cicd repository](https://github.com/fatihkc/terraform-cicd) with complete, working implementations you can clone and use. Follow the [installation guide](https://github.com/fatihkc/terraform-cicd#installation) to set up all required tools.
 
-![Terraform CI/CD Pipeline](/images/production-ready-terraform.md/production-ready-terraform-cicd.webp)
+![Terraform CI/CD Pipeline](/images/production-ready-terraform/production-ready-terraform-cicd.webp)
 
 ## Syntax and Formatting
 
