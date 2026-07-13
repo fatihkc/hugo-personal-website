@@ -60,6 +60,8 @@ That inversion changed how much project I can afford. The hours I do spend are a
 
 The first fully unattended run hung for hours. Root cause: the routine needed a documentation lookup that popped an interactive permission prompt, and there was nobody at the keyboard to click allow. The fix was boring and very DevOps. Preauthorize the tools, add a hard rule that unattended runs must never wait on a human, require every run to end with a Slack message even when it fails.
 
+Another lesson looked the same in shape. No run trusts its own memory, only files on disk. Each routine reads a small state file when it starts and writes one when it finishes, so what the last run learned is a durable artifact rather than something held in context: a dedup ledger, a run log, and a handoff file the next stage reads. The order matters more than it sounds. The durable state gets written after the side effect succeeds, not before, because a crash in between would mark the work as done and make every future run skip it. Each routine keeps this logic in its own skill file, and that small discipline is why the queue can sit untouched for two weeks and still resume exactly where it left off.
+
 In my experience the hard part of autonomy is never the intelligence. It's the operational guarantees around it. Timeouts, idempotent retries, a notification for every terminal state, a documented rollback for every risky change. Unattended AI is an SRE problem wearing a content hat, and my day job prepared me for it better than any prompt guide did.
 
 ## What the Experiment Proved
