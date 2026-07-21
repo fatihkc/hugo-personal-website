@@ -55,14 +55,17 @@ I build resilient, secure, and cost‑effective cloud platforms on AWS, Azure, a
 - Reduced AWS costs by improving capacity planning
 - Enhanced cloud security using tools like Prisma Cloud
 
+## Projects
+
+- [Awesome Agentic Engineering](https://github.com/fatihkc/awesome-agentic-engineering): a curated, operator-maintained map of the best resources for agentic engineering and the AI-native SDLC, from coding agents and harnesses to loop and context engineering, spec-driven development, and real production case studies.
+- [DevOps Start](https://devopsstart.com): a DevOps and cloud learning site written and operated by an autonomous, agent-driven content pipeline.
+
 ## Selected writing
 
 - Kubernetes deployment guide: [/posts/k8s-deployment-guide/](/posts/k8s-deployment-guide/)
 - EKS cost optimization (Part 1): [/posts/eks-cost-optimization-1/](/posts/eks-cost-optimization-1/)
 - EKS cost optimization (Part 2): [/posts/eks-cost-optimization-2/](/posts/eks-cost-optimization-2/)
 - Cloud Resume Challenge write‑up: [/posts/cloud-resume-challenge/](/posts/cloud-resume-challenge/)
-
-I also run [DevOps Start](https://devopsstart.com), a DevOps and cloud resource site I publish to regularly.
 
 ## How I work
 
