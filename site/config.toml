@@ -56,11 +56,20 @@ scriptsrc = [
 prefetchsrc = ["'self'"]
 connectsrc = ["'self'", "https://www.google-analytics.com"]
 
+# Only `tag` is used by any post. Declaring unused taxonomies made Hugo emit
+# empty /categories/, /series/ and /authors/ pages that Google crawled and
+# refused to index ("Discovered - currently not indexed").
 [taxonomies]
-category = "categories"
-series = "series"
 tag = "tags"
-author = "authors"
+
+# Keep taxonomy and term pages (/tags/, /tags/aws/, ...) reachable for readers,
+# but out of the sitemap: Google classes them all as "Crawled - currently not
+# indexed", so submitting them only spends crawl budget that the 12 posts want.
+[[cascade]]
+[cascade.sitemap]
+disable = true
+[cascade.target]
+kind = "{taxonomy,term}"
 
 [[params.social]]
 name = "LinkedIn"
