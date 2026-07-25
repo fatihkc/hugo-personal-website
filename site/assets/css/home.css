@@ -1,26 +1,19 @@
 /*
   Home page layout.
 
-  The theme's `.content` is `flex: 1; display: flex` with no `flex-direction`
-  and no breakpoint — a permanent row, sized on the assumption that it holds
-  exactly one `.container` child. The home page now puts a second block (the
-  latest-posts list) next to the profile card, so without this the two would
-  stay side by side at every width and get squashed on phones.
+  The theme's `.content` is `flex: 1; display: flex` with no `flex-direction`,
+  i.e. a row, sized on the assumption that it holds exactly one `.container`
+  child. `index.html` gives it two — the profile card and the latest-posts list
+  — so without this they would sit side by side.
 
-  Scoping the fix to a `.home-content` wrapper keeps `.content` untouched for
-  every other page type (posts, list pages, about, contact).
-
-  Root font-size is 62.5%, so 1rem = 10px: a 38rem flex-basis per column makes
-  the two stack below ~768px, the same breakpoint the theme already uses to
-  move the post date above the title in `.list`.
+  We want them stacked: profile first, posts underneath. `flex: 1` makes this
+  wrapper fill `.content` (otherwise it shrinks to its contents and the
+  `width: 100%` on `.container` has nothing to resolve against), and
+  `flex-direction: column` puts the two blocks one above the other at every
+  width, so no breakpoint is involved.
 */
 .home-content {
   display: flex;
   flex: 1;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-.home-content > .container {
-  flex: 1 1 38rem;
+  flex-direction: column;
 }
