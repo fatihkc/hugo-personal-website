@@ -1,3 +1,48 @@
 User-agent: *
 Allow: /
+
+# AI crawlers - explicitly allowed.
+# The wildcard rule above already permits these; the block is explicit because
+# Google-Extended and Applebot-Extended are opt-out-only tokens, and because
+# an explicit Allow survives future edits to the wildcard rule.
+
+# OpenAI (training, ChatGPT search, user-triggered fetches)
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Google Gemini / AI Overviews grounding (separate from Googlebot)
+User-agent: Google-Extended
+Allow: /
+
+# Apple Intelligence / Siri
+User-agent: Applebot-Extended
+Allow: /
+
+# Common Crawl (feeds many open models and datasets)
+User-agent: CCBot
+Allow: /
+
 Sitemap: https://fatihkoc.net/sitemap.xml
