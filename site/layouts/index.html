@@ -4,8 +4,8 @@
 
 {{ define "content" }}
   {{/*
-    `.content` is a flex row built for a single child; this wrapper lets the
-    profile card and the latest-posts list share it (see assets/css/home.css).
+    `.content` is a flex row built for a single child; this wrapper holds both
+    blocks and stacks them, profile above posts (see assets/css/home.css).
   */}}
   <div class="home-content">
     {{ partial "home.html" . }}
