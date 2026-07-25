@@ -1,0 +1,31 @@
+{{/*
+  Latest posts on the home page.
+
+  Called from layouts/index.html *after* — and deliberately outside — the theme's
+  home.html partial. That partial wraps its contents in `.container.centered`,
+  which is `display: flex; justify-content: center`, so a list rendered inside it
+  (e.g. via the theme's `home/extensions.html` hook) gets squashed into a row.
+
+  The markup mirrors the theme's own layouts/posts/li.html, so this reuses the
+  existing `.container.list` styling — including the responsive date column and
+  the dark-mode variants — without any custom CSS.
+*/}}
+{{ $recent := first 5 (where site.RegularPages "Section" "posts").ByDate.Reverse }}
+{{ with $recent }}
+  <section class="container list">
+    <h2>{{ i18n "recentPosts" | default "Latest posts" }}</h2>
+    <ul>
+      {{ range . }}
+        <li>
+          <span class="date">
+            {{- .Date | time.Format (site.Params.dateFormat | default "January 2, 2006") -}}
+          </span>
+          <a class="title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </li>
+      {{ end }}
+    </ul>
+    {{ with site.GetPage "/posts" }}
+      <a href="{{ .RelPermalink }}">See all posts →</a>
+    {{ end }}
+  </section>
+{{ end }}
