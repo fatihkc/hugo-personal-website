@@ -3,5 +3,12 @@
 {{ end }}
 
 {{ define "content" }}
-  {{ partial "home.html" . }}
+  {{/*
+    `.content` is a flex row built for a single child; this wrapper lets the
+    profile card and the latest-posts list share it (see assets/css/home.css).
+  */}}
+  <div class="home-content">
+    {{ partial "home.html" . }}
+    {{ partial "home/recent-posts.html" . }}
+  </div>
 {{ end }}
