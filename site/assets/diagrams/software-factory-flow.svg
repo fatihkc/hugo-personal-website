@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="924" viewBox="0 0 1280 924">
+  <defs>
+    <style>
+      .sans { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+      .mono { font-family: Menlo, "PT Mono", monospace; }
+      .title { font-size: 30px; font-weight: 700; fill: #f2f3f5; letter-spacing: -0.5px; }
+      .sub { font-size: 15px; fill: #8b919c; }
+      .band { font-size: 12.5px; letter-spacing: 2.1px; fill: #8b919c; }
+      .num { font-size: 12.5px; fill: #7b95ff; }
+      .numg { font-size: 12px; letter-spacing: 1.6px; fill: #868c98; }
+      .ch { font-size: 16px; font-weight: 700; fill: #e8eaee; }
+      .cb { font-size: 13px; fill: #9aa1ac; }
+      .cbb { font-size: 13px; font-weight: 700; fill: #d3d8e2; }
+      .step { font-size: 19px; font-weight: 700; fill: #ffffff; }
+      .stepsub { font-size: 13px; fill: #c9d2f5; }
+      .stepnum { font-size: 12.5px; letter-spacing: 1.6px; fill: #b9c4f0; }
+      .outh { font-size: 18px; font-weight: 700; fill: #ffffff; }
+      .outl { font-size: 12px; letter-spacing: 1.8px; }
+      .note { font-size: 13px; font-style: italic; fill: #8b919c; }
+    </style>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#3f63e8"/>
+      <stop offset="1" stop-color="#5b52dd"/>
+    </linearGradient>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9" fill="none" stroke="#5a5f68" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect width="1280" height="924" fill="#0a0a0a"/>
+
+  <text class="sans title" x="640" y="60" text-anchor="middle">From issue to merged code</text>
+  <text class="sans sub" x="640" y="91" text-anchor="middle">You agree the plan. Everything after it runs unattended, and merging is a separate turn.</text>
+
+  <!-- 01 -->
+  <rect x="412" y="128" width="456" height="88" rx="10" fill="url(#blue)"/>
+  <text class="mono stepnum" x="436" y="158">01 · YOU</text>
+  <text class="sans step" x="436" y="182">Write the plan in the issue</text>
+  <text class="sans stepsub" x="436" y="203">Then label it <tspan class="mono">ready</tspan>. That label is the whole queue.</text>
+  <line x1="640" y1="216" x2="640" y2="248" stroke="#5a5f68" stroke-width="1.7" marker-end="url(#a)"/>
+
+  <!-- one run band -->
+  <rect x="64" y="252" width="1152" height="176" rx="14" fill="#101317" stroke="#272b31" stroke-width="1.4"/>
+  <text class="mono band" x="88" y="281">ONE RUN · NO HUMAN AT THE KEYBOARD</text>
+
+  <rect x="88" y="295" width="205" height="115" rx="9" fill="#16191d" stroke="#2c3138" stroke-width="1.3"/>
+  <text class="mono num" x="108" y="322">02</text>
+  <text class="sans ch" x="108" y="345">Branch</text>
+  <text class="sans cb" x="108" y="367">A worktree cut fresh from</text>
+  <text class="sans cb" x="108" y="384"><tspan class="mono" font-size="12">origin/main</tspan>. Your own</text>
+  <text class="sans cb" x="108" y="401">checkout is never touched.</text>
+
+  <rect x="313" y="295" width="205" height="115" rx="9" fill="#16191d" stroke="#2c3138" stroke-width="1.3"/>
+  <text class="mono num" x="333" y="322">03</text>
+  <text class="sans ch" x="333" y="345">Spec</text>
+  <text class="sans cb" x="333" y="367">The issue body, copied</text>
+  <text class="sans cb" x="333" y="384">verbatim. No model writes</text>
+  <text class="sans cb" x="333" y="401">what a human already did.</text>
+
+  <rect x="538" y="295" width="205" height="115" rx="9" fill="#16191d" stroke="#2c3138" stroke-width="1.3"/>
+  <text class="mono num" x="558" y="322">04</text>
+  <text class="sans ch" x="558" y="345">Plan</text>
+  <text class="sans cb" x="558" y="367">Graded against the repo's</text>
+  <text class="sans cb" x="558" y="384">own rules, one verdict each,</text>
+  <text class="sans cb" x="558" y="401">before any code exists.</text>
+
+  <rect x="763" y="295" width="205" height="115" rx="9" fill="#16191d" stroke="#2c3138" stroke-width="1.3"/>
+  <text class="mono num" x="783" y="322">05</text>
+  <text class="sans ch" x="783" y="345">Implement</text>
+  <text class="sans cb" x="783" y="367">Writes the code and</text>
+  <text class="sans cb" x="783" y="384">commits it, a checkpoint</text>
+  <text class="sans cb" x="783" y="401">per stage.</text>
+
+  <rect x="988" y="295" width="205" height="115" rx="9" fill="#16191d" stroke="#2c3138" stroke-width="1.3"/>
+  <text class="mono num" x="1008" y="322">06</text>
+  <text class="sans ch" x="1008" y="345">Verify</text>
+  <text class="sans cb" x="1008" y="367">Tests, style, types, sast.</text>
+  <text class="sans cbb" x="1008" y="384">Not one of them asks</text>
+  <text class="sans cbb" x="1008" y="401">a model anything.</text>
+
+  <line x1="640" y1="428" x2="640" y2="462" stroke="#5a5f68" stroke-width="1.7" marker-end="url(#a)"/>
+
+  <!-- 07 -->
+  <rect x="320" y="466" width="640" height="80" rx="10" fill="#16191d" stroke="#3d424a" stroke-width="1.4"/>
+  <text class="mono num" x="344" y="493">07</text>
+  <text class="sans ch" x="344" y="518" font-size="17">A draft pull request that says <tspan class="mono" font-size="16">Closes #180</tspan></text>
+  <text class="sans cb" x="344" y="537">Green ships. Red opens one too, marked <tspan class="mono" font-size="12">needs-review</tspan>, because a human is needed either way.</text>
+
+  <line x1="640" y1="546" x2="640" y2="560" stroke="#4a4f57" stroke-width="1.7" stroke-dasharray="2 4"/>
+  <rect x="543" y="562" width="194" height="30" rx="15" fill="#16191d" stroke="#33373d" stroke-width="1.2"/>
+  <text class="sans note" x="640" y="582" text-anchor="middle">a separate turn, later</text>
+  <line x1="640" y1="592" x2="640" y2="620" stroke="#4a4f57" stroke-width="1.7" stroke-dasharray="2 4" marker-end="url(#a)"/>
+
+  <!-- landing band -->
+  <rect x="64" y="624" width="1152" height="152" rx="14" fill="#101317" stroke="#272b31" stroke-width="1.4"/>
+  <text class="mono band" x="88" y="653">LANDING TURN · STOPS AT THE FIRST GUARD THAT FAILS</text>
+
+  <rect x="88" y="668" width="266" height="88" rx="9" fill="#16191d" stroke="#2c3138" stroke-width="1.3"/>
+  <text class="mono numg" x="108" y="694">GUARD 1</text>
+  <text class="sans ch" x="108" y="716" font-size="15">The gate passed</text>
+  <text class="sans cb" x="108" y="736" font-size="12.5">Per the record on the branch, not</text>
+  <text class="sans cb" x="108" y="751" font-size="12.5">the run that wrote it.</text>
+
+  <rect x="370" y="668" width="266" height="88" rx="9" fill="#16191d" stroke="#2c3138" stroke-width="1.3"/>
+  <text class="mono numg" x="390" y="694">GUARD 2</text>
+  <text class="sans ch" x="390" y="716" font-size="15">CI is green</text>
+  <text class="sans cb" x="390" y="736" font-size="12.5">A missing check is a stop and</text>
+  <text class="sans cb" x="390" y="751" font-size="12.5">never a pass.</text>
+
+  <rect x="652" y="668" width="266" height="88" rx="9" fill="#16191d" stroke="#2c3138" stroke-width="1.3"/>
+  <text class="mono numg" x="672" y="694">GUARD 3</text>
+  <text class="sans ch" x="672" y="716" font-size="15">No fenced path touched</text>
+  <text class="sans cb" x="672" y="736" font-size="12.5">The handful of files a run must</text>
+  <text class="sans cb" x="672" y="751" font-size="12.5">never change.</text>
+
+  <rect x="934" y="668" width="266" height="88" rx="9" fill="#16191d" stroke="#2c3138" stroke-width="1.3"/>
+  <text class="mono numg" x="954" y="694">GUARD 4</text>
+  <text class="sans ch" x="954" y="716" font-size="15">Nobody else is on it</text>
+  <text class="sans cb" x="954" y="736" font-size="12.5">No other push, comment or</text>
+  <text class="sans cb" x="954" y="751" font-size="12.5">review on the pull request.</text>
+
+  <!-- split -->
+  <path d="M 640 776 L 640 790 Q 640 800 628 800 L 430 800 Q 418 800 418 810 L 418 814" fill="none" stroke="#5a5f68" stroke-width="1.7" marker-end="url(#a)"/>
+  <path d="M 640 776 L 640 790 Q 640 800 652 800 L 867 800 Q 879 800 879 810 L 879 814" fill="none" stroke="#5a5f68" stroke-width="1.7" marker-end="url(#a)"/>
+
+  <!-- outcomes -->
+  <rect x="196" y="818" width="444" height="62" rx="9" fill="#12885d"/>
+  <text class="mono outl" x="220" y="845" fill="#c9f2df">IF ALL FOUR HOLD</text>
+  <text class="sans outh" x="220" y="869" font-size="17">Squash merged, branch deleted, issue closed</text>
+
+  <rect x="672" y="818" width="414" height="62" rx="9" fill="#1d1a12" stroke="#c39a2b" stroke-width="1.5"/>
+  <text class="mono outl" x="696" y="845" fill="#c39a2b">IF ANY ONE FAILS · BACK TO YOU</text>
+  <text class="sans outh" x="696" y="869">It waits, and I review it</text>
+</svg>
