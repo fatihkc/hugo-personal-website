@@ -1,7 +1,7 @@
 +++
 title = "I'm Building a Software Factory That Turns My Issues Into Merged Code"
 description = "I'm building a software factory that turns planned GitHub issues into merged code, so my side project time goes to planning instead of writing the code myself."
-date = "2026-07-30"
+date = "2026-08-06"
 author = "Fatih Koç"
 tags = ["AI", "DevOps", "Automation"]
 images = ["/images/software-factory-side-projects/software-factory-side-projects.webp"]
