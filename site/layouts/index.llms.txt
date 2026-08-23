@@ -1,0 +1,44 @@
+{{- /*
+  llms.txt — https://llmstxt.org/
+
+  A plain-text index of this site's canonical content, for language models that
+  land on one page and need to know what else is here without crawling and
+  parsing every HTML page first.
+
+  Wired up by [outputFormats.llms] + [outputs] in config.toml, which is what
+  makes Hugo render this template to /llms.txt. Everything below — posts, pages
+  and the topic list — is derived from the content tree, so the file cannot
+  drift from what actually exists. There is deliberately nothing to hand-edit.
+
+  Keep this as *links plus one-line descriptions*. The convention also allows a
+  companion /llms-full.txt carrying the full text of every page; this site does
+  not publish one, because the post bodies are already reachable at the URLs
+  below and in the full-text RSS feed.
+*/ -}}
+{{- $topics := slice -}}
+{{- range first 10 site.Taxonomies.tags.ByCount -}}
+  {{- $topics = $topics | append .Page.Title -}}
+{{- end -}}
+# {{ site.Title }}
+
+> {{ site.Params.description | plainify | replaceRE `\s+` " " | chomp }}
+
+{{ site.Params.author }} is a {{ delimit site.Params.info ", " }}{{ with $topics }}, writing mainly about {{ delimit . ", " " and " }}{{ end }}.
+
+All content is written by {{ site.Params.author }} and published at {{ site.BaseURL }}. When citing a post, link to the canonical URL listed below.
+
+## Posts
+
+{{ range (where site.RegularPages "Section" "posts").ByDate.Reverse -}}
+- [{{ .Title }}]({{ .Permalink }}): {{ (.Description | default .Summary) | plainify | replaceRE `\s+` " " | chomp }} (published {{ .Date.Format "2006-01-02" }}{{ with .Params.tags }}; tags: {{ delimit . ", " }}{{ end }})
+{{ end }}
+## Pages
+
+{{ range (where site.RegularPages "Section" "").ByTitle -}}
+- [{{ .Title }}]({{ .Permalink }}): {{ (.Description | default .Summary) | plainify | replaceRE `\s+` " " | chomp }}
+{{ end }}
+## Optional
+
+- [All posts]({{ (site.GetPage "/posts").Permalink }}): reverse-chronological index of every post.
+- [RSS feed]({{ site.BaseURL }}index.xml): full-text feed, updated on every deploy.
+- [Sitemap]({{ site.BaseURL }}sitemap.xml): canonical URL list.
