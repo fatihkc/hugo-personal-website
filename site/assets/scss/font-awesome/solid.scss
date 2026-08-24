@@ -1,0 +1,30 @@
+// Shadows themes/hugo-coder/assets/scss/font-awesome/solid.scss.
+//
+// Identical to upstream except the @font-face drops the .ttf source: only the
+// subsetted .woff2 is fetched, and the theme's 423 KB fa-solid-900.ttf never
+// leaves S3.
+//
+// The `.fas, .fa-solid { font-weight: 900 }` rule must stay. _content.scss does
+// `@extend .fa-solid` for the external-link :after marker, and Sass errors out
+// if the extended selector does not exist.
+
+@import 'functions';
+@import 'variables';
+
+:root, :host {
+  --#{$fa-css-prefix}-style-family-classic: '#{ $fa-style-family }';
+  --#{$fa-css-prefix}-font-solid: normal 900 1em/1 '#{ $fa-style-family }';
+}
+
+@font-face {
+  font-family: 'Font Awesome 6 Free';
+  font-style: normal;
+  font-weight: 900;
+  font-display: $fa-font-display;
+  src: url('#{$fa-font-path}/fa-solid-900.woff2') format('woff2');
+}
+
+.fas,
+.#{$fa-css-prefix}-solid {
+  font-weight: 900;
+}

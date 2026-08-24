@@ -1,0 +1,14 @@
+// Shadows themes/hugo-coder/assets/scss/font-awesome/regular.scss to render
+// nothing.
+//
+// Not one `fa-regular` / `.far` icon exists in this site's templates, content
+// or config, but upstream still declares an @font-face for the regular face —
+// and theme-styles.html preloads it — so every visitor downloaded 25 KB of
+// fa-regular-400.woff2 at top priority to draw zero glyphs. The file is no
+// longer generated into site/static/fonts/ at all.
+//
+// The `.far, .fa-regular` selectors in _core.scss are left alone: they are a
+// handful of bytes and removing them would mean shadowing _core.scss too.
+//
+// If a regular-weight icon is ever needed, restore the upstream @font-face here
+// and add the face back to scripts/subset-fontawesome.py.

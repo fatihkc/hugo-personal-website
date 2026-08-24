@@ -1,0 +1,50 @@
+// Shadows themes/hugo-coder/assets/scss/font-awesome/_icons.scss.
+//
+// Upstream emits a `.fa-<name>::before` rule for every icon in Font Awesome 6
+// Free — 833 rules, ~31 KB of the compiled stylesheet — so that this site can
+// draw eighteen glyphs. This file emits only the ones that are reachable.
+//
+// THIS MAP IS THE SOURCE OF TRUTH for what ships in the subsetted font files.
+// scripts/subset-fontawesome.py parses it (and the sibling map in brands.scss)
+// to decide which glyphs to keep in site/static/fonts/*.woff2. Add an icon here
+// and re-run that script, or the class will point at a glyph the font no longer
+// contains and render as a blank box.
+//
+// Codepoints are taken from the theme's own $fa-var-* variables rather than
+// written out, so a Font Awesome version bump in the theme stays correct.
+
+$site-fa-icons: (
+  // --- rendered on the site today ---
+  "link":                 $fa-var-link,                 // heading anchors (render-heading.html)
+  "external-link":        $fa-var-external-link,         // see note below
+  "bars":                 $fa-var-bars,                 // mobile menu toggle (header.html)
+  "tag":                  $fa-var-tag,                  // tag lists (taxonomy/tags.html)
+  "clock":                $fa-var-clock,                // reading time (posts/single.html)
+  "calendar":             $fa-var-calendar,             // publish date (posts/single.html)
+  "rss":                  $fa-var-rss,                  // social link (config.toml)
+  "briefcase":            $fa-var-briefcase,            // Upwork social link (config.toml)
+
+  // --- reachable from theme templates, not currently rendered ---
+  // Kept so that enabling a feature does not silently produce blank boxes.
+  "user":                 $fa-var-user,                 // taxonomy/authors.html
+  "folder":               $fa-var-folder,               // taxonomy/categories.html
+  "adjust":               $fa-var-adjust,               // float.html colour-scheme toggle
+  "sticky-note":          $fa-var-sticky-note,          // notice shortcode: note
+  "lightbulb":            $fa-var-lightbulb,            // notice shortcode: tip
+  "file-text":            $fa-var-file-text,            // notice shortcode: example
+  "question":             $fa-var-question,             // notice shortcode: question
+  "exclamation-circle":   $fa-var-exclamation-circle,   // notice shortcode: info
+  "exclamation-triangle": $fa-var-exclamation-triangle, // notice shortcode: warning
+  "times-circle":         $fa-var-times-circle          // notice shortcode: error
+);
+
+// external-link is the easy one to lose: _content.scss draws it with
+// `content: fa-content($fa-var-external-link)` on an :after pseudo-element, so
+// no `fa-` class ever appears in the HTML and grepping the markup will not find
+// it — while render-link.html tags every outbound link in every post with
+// .external-link (72 of them at last count). The subsetting script re-checks
+// this by scanning the theme's SCSS for fa-content() calls.
+
+@each $name, $icon in $site-fa-icons {
+  .#{$fa-css-prefix}-#{$name}::before { content: unquote("\"#{ $icon }\""); }
+}

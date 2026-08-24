@@ -9,3 +9,7 @@ site/resources/
 .terraform.*
 .vscode
 node_modules
+
+# scripts/subset-fontawesome.py is run from a local venv
+__pycache__/
+.venv/

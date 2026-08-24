@@ -1,0 +1,32 @@
+{{- /*
+  Overrides themes/hugo-coder/layouts/partials/head/custom-icons.html.
+
+  Upstream links four icon files that did not exist in this repo, so every page
+  load fired requests that fell through CloudFront's custom error response to
+  the 2 KB /404.html page:
+
+    /images/apple-touch-icon.png   (linked twice, once with sizes, once without)
+    /site.webmanifest
+    /images/safari-pinned-tab.svg
+
+  Fixed by making the first two real — apple-touch-icon.png and the manifest's
+  192/512 PNGs are rendered from images/fatih-koc-logo.svg, and site.webmanifest
+  carries the site name and the #212121 dark background the theme actually uses.
+  Regenerate the PNGs with:
+
+    rsvg-convert -w 180 -h 180 -b '#000000' \
+      site/static/images/fatih-koc-logo.svg -o site/static/images/apple-touch-icon.png
+
+  The duplicate bare apple-touch-icon link is dropped; iOS picks the sized one.
+
+  mask-icon is dropped rather than fixed: it needs a purpose-built single-colour
+  SVG (not this logo, which has two fills), and it only ever applied to Safari's
+  pinned tabs, which have ignored it since Safari 15.
+*/ -}}
+<link rel="icon" type="image/svg+xml" href="{{ .Site.Params.faviconSVG | default "/images/favicon.svg" | relURL }}" sizes="any">
+<link rel="icon" type="image/png" href="{{ .Site.Params.favicon_32 | default "/images/favicon-32x32.png" | relURL }}" sizes="32x32">
+<link rel="icon" type="image/png" href="{{ .Site.Params.favicon_16 | default "/images/favicon-16x16.png" | relURL }}" sizes="16x16">
+
+<link rel="apple-touch-icon" sizes="180x180" href="{{ .Site.Params.touchicon | default "/images/apple-touch-icon.png" | relURL }}">
+
+<link rel="manifest" href="{{ .Site.Params.manifest | default "/site.webmanifest" | relURL }}">

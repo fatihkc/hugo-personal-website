@@ -1,0 +1,44 @@
+{{- /*
+  Overrides themes/hugo-coder/layouts/partials/head/theme-styles.html.
+
+  Identical to upstream except for the preload list. Upstream preloads all three
+  Font Awesome faces — fa-solid-900 (157 KB), fa-brands-400 (118 KB) and
+  fa-regular-400 (25 KB) — at the browser's highest fetch priority on every
+  page, ~300 KB competing with the LCP image to draw about ten icons.
+
+  The two faces below are now subsetted to the glyphs this site actually renders
+  (see scripts/subset-fontawesome.py) and come to ~3 KB together, which is worth
+  preloading: Font Awesome sets font-display: block, so icons stay invisible
+  until the font arrives.
+
+  fa-regular-400 is gone entirely — no `fa-regular` / `.far` icon exists in this
+  site's templates, content or config, so it was 25 KB fetched at top priority
+  to draw nothing.
+
+  The stylesheet pipeline below is copied verbatim; keep it in sync if the theme
+  changes it.
+*/ -}}
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+
+{{ if hugo.IsServer }}
+  {{ $cssOpts := (dict "targetPath" "css/coder.css" "enableSourceMap" true ) }}
+  {{ $styles := resources.Get "scss/coder.scss" | resources.ExecuteAsTemplate "style.coder.css" . | toCSS $cssOpts }}
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}" media="screen">
+{{ else }}
+  {{ $cssOpts := (dict "targetPath" "css/coder.css" ) }}
+  {{ $styles := resources.Get "scss/coder.scss" | resources.ExecuteAsTemplate "style.coder.css" . | toCSS $cssOpts | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" crossorigin="anonymous" media="screen" />
+{{ end }}
+
+{{ if .Site.Params.rtl }}
+  {{ if hugo.IsServer }}
+    {{ $cssOpts := (dict "targetPath" "css/coder-rtl.css" "enableSourceMap" true ) }}
+    {{ $styles := resources.Get "scss/coder-rtl.scss" | resources.ExecuteAsTemplate "style.coder-rtl.css" . | toCSS $cssOpts }}
+    <link rel="stylesheet" href="{{ $styles.RelPermalink }}" media="screen">
+  {{ else }}
+    {{ $cssOpts := (dict "targetPath" "css/coder-rtl.css" ) }}
+    {{ $styles := resources.Get "scss/coder-rtl.scss" | resources.ExecuteAsTemplate "style.coder-rtl.css" . | toCSS $cssOpts | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" crossorigin="anonymous" media="screen" />
+  {{ end }}
+{{ end }}
