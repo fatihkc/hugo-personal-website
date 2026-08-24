@@ -71,33 +71,37 @@ disable = true
 [cascade.target]
 kind = "{taxonomy,term}"
 
+# Social icons use Font Awesome 6 class names directly. The v4 shims that
+# used to translate "fa fa-linkedin" are compiled out (see
+# assets/scss/font-awesome/v4-shims.scss), and the shimmed name resolved to a
+# different glyph than the v6 one: fa-linkedin -> linkedin-in.
 [[params.social]]
 name = "LinkedIn"
-icon = "fa fa-2x fa-linkedin"
+icon = "fa-brands fa-linkedin-in fa-2x"
 weight = 1
 url = "https://www.linkedin.com/in/fatihhkoc/"
 
 [[params.social]]
 name = "Github"
-icon = "fa fa-2x fa-github"
+icon = "fa-brands fa-github fa-2x"
 weight = 3
 url = "https://github.com/fatihkc/"
 
 [[params.social]]
 name = "Upwork"
-icon = "fa fa-2x fa-briefcase"
+icon = "fa-solid fa-briefcase fa-2x"
 weight = 2
 url = "https://www.upwork.com/freelancers/fatihkoc"
 
 [[params.social]]
 name = "Twitter"
-icon = "fa fa-2x fa-twitter"
+icon = "fa-brands fa-twitter fa-2x"
 weight = 4
 url = "https://twitter.com/fatihkocnet/"
 
 [[params.social]]
 name = "RSS"
-icon = "fa fa-2x fa-rss"
+icon = "fa-solid fa-rss fa-2x"
 weight = 5
 url = "https://fatihkoc.net/index.xml"
 rel = "alternate"
@@ -143,23 +147,50 @@ URL = "s3://fatihkocnet-hugo?region=eu-central-1"
 # If you are using a CloudFront CDN, deploy will invalidate the cache as needed.
 cloudFrontDistributionID = "ECWXB3G1RK67X"
 
+# Matchers are evaluated in order and the FIRST match wins, so the specific
+# filename rules have to stay above the general extension rules.
+
+# The manifest needs an explicit content type: .webmanifest is not in Go's mime
+# table, so it would otherwise be uploaded as application/octet-stream.
 [[deployment.matchers]]
-# Cache static assets for 1 year.
-pattern = "^.+\\.(js|css|svg|ttf)$"
-cacheControl = "max-age=31536000, no-transform, public"
+pattern = "^site\\.webmanifest$"
+contentType = "application/manifest+json"
 gzip = true
 
-[[deployment.matchers]]
-pattern = "^.+\\.(png|jpg)$"
-cacheControl = "max-age=31536000, no-transform, public"
-gzip = false
-
-[[deployment.matchers]]
 # Set custom content type for /sitemap.xml
+[[deployment.matchers]]
 pattern = "^sitemap\\.xml$"
 contentType = "application/xml"
 gzip = true
 
+# Text assets, cached for a year. Safe because Hugo fingerprints these
+# (coder.min.<hash>.css): any change produces a new filename.
 [[deployment.matchers]]
-pattern = "^.+\\.(html|xml|json)$"
+pattern = "^.+\\.(js|css|svg)$"
+cacheControl = "max-age=31536000, no-transform, public"
+gzip = true
+
+# Binary assets: images and web fonts. Already compressed, so gzipping them only
+# burns CPU and hides the real content length.
+#
+# webp and woff2 were both missing from these patterns, which meant every post
+# image and every icon font shipped with no Cache-Control header at all and fell
+# back to CloudFront's default TTL plus browser heuristics. They are the two
+# heaviest asset classes on the site, so they were the worst two to leave out.
+#
+# Note these paths are NOT fingerprinted (/images/<slug>/hero.webp,
+# /fonts/fa-solid-900.woff2), so a year-long cache means replacing a file under
+# the same name can leave stale copies in browsers for a long time — give the
+# replacement a new filename instead. That trade-off already applied to png/jpg.
+[[deployment.matchers]]
+pattern = "^.+\\.(png|jpe?g|webp|gif|ico|woff2?|ttf)$"
+cacheControl = "max-age=31536000, no-transform, public"
+gzip = false
+
+# Documents that are rewritten on every deploy. No explicit Cache-Control, so
+# they keep taking CloudFront's default TTL and stay revalidated. `txt` is new:
+# it covers robots.txt, the IndexNow key file and llms.txt, none of which were
+# being compressed before.
+[[deployment.matchers]]
+pattern = "^.+\\.(html|xml|json|txt)$"
 gzip = true

@@ -1,0 +1,43 @@
+// Shadows themes/hugo-coder/assets/scss/font-awesome/brands.scss.
+//
+// Two changes from upstream:
+//   1. the @font-face drops the .ttf source, so only the (subsetted) .woff2 is
+//      ever fetched — every browser this site supports reads woff2, and the
+//      theme's 209 KB fa-brands-400.ttf was pure fallback weight;
+//   2. only the three brand glyphs the site links to are emitted, instead of
+//      the full brand set.
+//
+// $site-fa-brand-icons is a source of truth for scripts/subset-fontawesome.py
+// in the same way as $site-fa-icons in _icons.scss — see the note there.
+
+@import 'functions';
+@import 'variables';
+
+:root, :host {
+  --#{$fa-css-prefix}-style-family-brands: 'Font Awesome 6 Brands';
+  --#{$fa-css-prefix}-font-brands: normal 400 1em/1 'Font Awesome 6 Brands';
+}
+
+@font-face {
+  font-family: 'Font Awesome 6 Brands';
+  font-style: normal;
+  font-weight: 400;
+  font-display: $fa-font-display;
+  src: url('#{$fa-font-path}/fa-brands-400.woff2') format('woff2');
+}
+
+// Kept because _core.scss and the social markup both rely on these selectors.
+.fab,
+.#{$fa-css-prefix}-brands {
+  font-weight: 400;
+}
+
+$site-fa-brand-icons: (
+  "linkedin-in": $fa-var-linkedin-in,  // LinkedIn social link (config.toml)
+  "github":      $fa-var-github,       // GitHub social link (config.toml)
+  "twitter":     $fa-var-twitter       // Twitter social link (config.toml)
+);
+
+@each $name, $icon in $site-fa-brand-icons {
+  .#{$fa-css-prefix}-#{$name}:before { content: unquote("\"#{ $icon }\""); }
+}

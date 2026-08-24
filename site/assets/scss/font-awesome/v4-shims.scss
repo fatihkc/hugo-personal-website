@@ -1,0 +1,15 @@
+// Shadows themes/hugo-coder/assets/scss/font-awesome/v4-shims.scss to render
+// nothing.
+//
+// The shims exist to keep Font Awesome 4 class names (`fa fa-linkedin`) working
+// against the version 6 glyph set, at a cost of ~10 KB of compiled CSS full of
+// aliases this site does not use. The only v4 names here were the five social
+// icons in config.toml, which now use their version 6 classes directly
+// (`fa-brands fa-linkedin-in`, `fa-solid fa-rss`, ...), so nothing needs
+// remapping.
+//
+// Worth knowing if you ever re-add them: the shims are not simple aliases.
+// `.fa.fa-linkedin` resolves to linkedin-in (U+F0E1), not linkedin (U+F08C),
+// and `.fa.fa-calendar` to U+F073, not the U+F133 that `.fa-solid fa-calendar`
+// gives. Any icon written in v4 syntax while this file is empty will fall back
+// to the solid face and may draw the wrong glyph or none at all.
