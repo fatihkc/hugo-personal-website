@@ -10,6 +10,23 @@ pygmentsCodeFences = true
 pygmentsCodeFencesGuessSyntax = true
 enableEmoji = true
 
+# llms.txt (https://llmstxt.org/) — a plain-text index of this site's canonical
+# content for language models. Generated from the content tree by
+# layouts/index.llms.txt, so it can never drift from the posts that exist.
+# `notAlternative` keeps it out of .AlternativeOutputFormats, so the theme does
+# not emit a <link rel="alternate" type="text/plain"> for it in every <head>.
+[outputFormats]
+  [outputFormats.llms]
+    mediaType = "text/plain"
+    baseName = "llms"
+    isPlainText = true
+    notAlternative = true
+
+# Defaults are ["HTML", "RSS"] for the home page; both must be repeated here or
+# the custom layouts/index.xml feed stops being built.
+[outputs]
+  home = ["HTML", "RSS", "llms"]
+
 [params.googleTagManager]
 #id =
 
