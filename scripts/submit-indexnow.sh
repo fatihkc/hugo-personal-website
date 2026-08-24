@@ -14,7 +14,10 @@ echo "🔐 Verifying IndexNow key at ${SITE_URL}/${INDEXNOW_KEY}.txt..."
 # Ensure the verification key is live and matches before submitting (avoid locale issues)
 KEY_URL="${SITE_URL}/${INDEXNOW_KEY}.txt"
 KEY_HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" "$KEY_URL" || true)
-KEY_BODY=$(curl -sL "$KEY_URL" || true)
+# --compressed is required: the deployment matcher for `txt` in config.toml
+# uploads this file gzipped, and curl only decodes Content-Encoding when it
+# asked for it. Without the flag this compares raw gzip bytes to the key.
+KEY_BODY=$(curl -sL --compressed "$KEY_URL" || true)
 
 if [ "$KEY_HTTP_CODE" != "200" ] || [ "$KEY_BODY" != "$INDEXNOW_KEY" ]; then
     echo "❌ Key verification failed. Expected ${INDEXNOW_KEY} at ${KEY_URL}"
